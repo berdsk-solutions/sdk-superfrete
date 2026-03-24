@@ -1,22 +1,16 @@
-next-version: 0.1.0 # <--- ADICIONE ISSO
+next-version: 0.1.0
 mode: ContinuousDelivery
 branches:
   master:
-    mode: ContinuousDelivery
     tag: ""
     increment: Patch
-    track-merge-target: true
     regex: ^master$
-    source-branches: [ 'develop' ]
     is-release-branch: true
   develop:
-    mode: ContinuousDelivery
     tag: preview
     increment: Minor
-    track-merge-target: false
     regex: ^develop$
     source-branches: [ 'master' ]
     is-release-branch: false
 ignore:
   sha: []
-merge-message-formats: {}
