@@ -16,16 +16,17 @@ jobs:
           fetch-depth: 0
 
       - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v3.1.11
+        uses: gittools/actions/gitversion/setup@v0.10.2
         with:
-          versionSpec: '5.x'
+          versionSpec: 5.x
 
       - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.10.2
         id: gitversion
-        uses: gittools/actions/gitversion/execute@v3.1.11
-        with:
-          useConfigFile: true
-          additionalArguments: '/overrideconfig dotnet-6-plus=true'
+
+      - name: Display GitVersion outputs
+        run: |
+          echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -36,10 +37,10 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore /p:Version=${{ env.GitVersion_NuGetVersionV2 }}
+        run: dotnet build --configuration Release --no-restore /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ./nupkg /p:Version=${{ env.GitVersion_NuGetVersionV2 }}
+        run: dotnet pack --configuration Release --no-build --output ./nupkg /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}
 
       - name: Push to NuGet
         if: github.event_name == 'push'
