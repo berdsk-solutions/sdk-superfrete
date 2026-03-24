@@ -4,7 +4,6 @@ branches:
     mode: ContinuousDelivery
     tag: ""
     increment: Patch
-    prevent-tag-on-release-due-to-untracked-files: false
     track-merge-target: true
     regex: ^master$
     source-branches: [ 'develop' ]
@@ -13,7 +12,6 @@ branches:
     mode: ContinuousDelivery
     tag: preview
     increment: Minor
-    prevent-tag-on-release-due-to-untracked-files: false
     track-merge-target: false
     regex: ^develop$
     source-branches: [ 'master' ]
