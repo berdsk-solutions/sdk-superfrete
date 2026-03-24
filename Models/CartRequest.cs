@@ -1,63 +1,64 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Requisição para enviar frete para a SuperFrete.
+///     RequisiÃ§Ã£o para enviar frete para a SuperFrete.
 /// </summary>
 public class CartRequest
 {
     /// <summary>
     ///     Dados do remetente.
     /// </summary>
-    [JsonProperty("from")]
+    [JsonPropertyName("from")]
     public ContactInfo From { get; set; } = new();
 
     /// <summary>
-    ///     Dados do destinatário.
+    ///     Dados do destinatÃ¡rio.
     /// </summary>
-    [JsonProperty("to")]
+    [JsonPropertyName("to")]
     public ContactInfo To { get; set; } = new();
 
     /// <summary>
-    ///     Serviço escolhido (1: PAC, 2: SEDEX, etc).
+    ///     ServiÃ§o escolhido (1: PAC, 2: SEDEX, etc).
     /// </summary>
-    [JsonProperty("service")]
+    [JsonPropertyName("service")]
     public int Service { get; set; }
 
     /// <summary>
-    ///     Produtos para a declaração de conteúdo.
+    ///     Produtos para a declaraÃ§Ã£o de conteÃºdo.
     /// </summary>
-    [JsonProperty("products")]
+    [JsonPropertyName("products")]
     public List<DeclarationProduct>? Products { get; set; }
 
     /// <summary>
-    ///     Dimensões e peso do pacote.
+    ///     DimensÃµes e peso do pacote.
     /// </summary>
-    [JsonProperty("volumes")]
+    [JsonPropertyName("volumes")]
     public PackageDimensions Volumes { get; set; } = new();
 
     /// <summary>
-    ///     Opções adicionais.
+    ///     OpÃ§Ãµes adicionais.
     /// </summary>
-    [JsonProperty("options")]
+    [JsonPropertyName("options")]
     public CartOptions? Options { get; set; }
 
     /// <summary>
     ///     Nome da plataforma.
     /// </summary>
-    [JsonProperty("platform")]
+    [JsonPropertyName("platform")]
     public string Platform { get; set; } = "C# Wrapper";
 
     /// <summary>
-    ///     Identificação do pedido na plataforma.
+    ///     IdentificaÃ§Ã£o do pedido na plataforma.
     /// </summary>
-    [JsonProperty("tag")]
+    [JsonPropertyName("tag")]
     public string? Tag { get; set; }
 
     /// <summary>
     ///     URL da plataforma.
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string? Url { get; set; }
 }
+

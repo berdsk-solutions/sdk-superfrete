@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class OrderTag
 {
-    [JsonProperty("tag")] public string Tag { get; set; } = string.Empty;
+    [JsonPropertyName("tag")] public string Tag { get; set; } = string.Empty;
 
-    [JsonProperty("url")] public string? Url { get; set; }
+    [JsonPropertyName("url")] public string? Url { get; set; }
 }
+

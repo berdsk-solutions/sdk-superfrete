@@ -1,25 +1,26 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Informações do usuário autenticado.
+///     InformaÃ§Ãµes do usuÃ¡rio autenticado.
 /// </summary>
 public class UserInfo
 {
-    [JsonProperty("id")] public string Id { get; set; } = string.Empty;
+    [JsonPropertyName("id")] public string Id { get; set; } = string.Empty;
 
-    [JsonProperty("firstname")] public string Firstname { get; set; } = string.Empty;
+    [JsonPropertyName("firstname")] public string Firstname { get; set; } = string.Empty;
 
-    [JsonProperty("lastname")] public string Lastname { get; set; } = string.Empty;
+    [JsonPropertyName("lastname")] public string Lastname { get; set; } = string.Empty;
 
-    [JsonProperty("phone")] public string Phone { get; set; } = string.Empty;
+    [JsonPropertyName("phone")] public string Phone { get; set; } = string.Empty;
 
-    [JsonProperty("email")] public string Email { get; set; } = string.Empty;
+    [JsonPropertyName("email")] public string Email { get; set; } = string.Empty;
 
-    [JsonProperty("document")] public string Document { get; set; } = string.Empty;
+    [JsonPropertyName("document")] public string Document { get; set; } = string.Empty;
 
-    [JsonProperty("limits")] public UserLimits Limits { get; set; } = new();
+    [JsonPropertyName("limits")] public UserLimits Limits { get; set; } = new();
 
-    [JsonProperty("balance")] public decimal Balance { get; set; }
+    [JsonPropertyName("balance")] public decimal Balance { get; set; }
 }
+

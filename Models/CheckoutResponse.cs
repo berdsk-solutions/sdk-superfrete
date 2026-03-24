@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
@@ -7,7 +7,8 @@ namespace Berdsk.Sdk.SuperFrete.Models;
 /// </summary>
 public class CheckoutResponse
 {
-    [JsonProperty("success")] public bool Success { get; set; }
+    [JsonPropertyName("success")] public bool Success { get; set; }
 
-    [JsonProperty("purchase")] public PurchaseInfo Purchase { get; set; } = new();
+    [JsonPropertyName("purchase")] public PurchaseInfo Purchase { get; set; } = new();
 }
+

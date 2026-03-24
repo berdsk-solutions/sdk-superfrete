@@ -1,12 +1,12 @@
-namespace Berdsk.Sdk.SuperFrete.Models;
+﻿namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Status possíveis de uma etiqueta/pedido.
+///     Status possÃ­veis de uma etiqueta/pedido.
 /// </summary>
 public static class OrderStatus
 {
     /// <summary>
-    ///     Aguardando emissão (pagamento).
+    ///     Aguardando emissÃ£o (pagamento).
     /// </summary>
     public const string Pending = "pending";
 
@@ -30,3 +30,4 @@ public static class OrderStatus
     /// </summary>
     public const string Canceled = "canceled";
 }
+

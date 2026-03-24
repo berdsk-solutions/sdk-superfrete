@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class UserLimits
 {
-    [JsonProperty("shipments")] public int Shipments { get; set; }
+    [JsonPropertyName("shipments")] public int Shipments { get; set; }
 
-    [JsonProperty("shipments_available")] public int ShipmentsAvailable { get; set; }
+    [JsonPropertyName("shipments_available")] public int ShipmentsAvailable { get; set; }
 }
+

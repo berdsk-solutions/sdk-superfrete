@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class MinMaxRange
 {
-    [JsonProperty("min")] public double Min { get; set; }
+    [JsonPropertyName("min")] public double Min { get; set; }
 
-    [JsonProperty("max")] public double Max { get; set; }
+    [JsonPropertyName("max")] public double Max { get; set; }
 }
+

@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class ServiceFormats
 {
-    [JsonProperty("package")] public PackageRestrictions Package { get; set; } = new();
+    [JsonPropertyName("package")] public PackageRestrictions Package { get; set; } = new();
 }
+

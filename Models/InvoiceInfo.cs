@@ -1,21 +1,22 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Informações da nota fiscal.
+///     InformaÃ§Ãµes da nota fiscal.
 /// </summary>
 public class InvoiceInfo
 {
     /// <summary>
-    ///     Número da nota fiscal (44 dígitos).
+    ///     NÃºmero da nota fiscal (44 dÃ­gitos).
     /// </summary>
-    [JsonProperty("number")]
+    [JsonPropertyName("number")]
     public string Number { get; set; } = string.Empty;
 
     /// <summary>
     ///     Identificador da nota fiscal.
     /// </summary>
-    [JsonProperty("key")]
+    [JsonPropertyName("key")]
     public string? Key { get; set; }
 }
+

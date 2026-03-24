@@ -1,39 +1,40 @@
-using Newtonsoft.Json;
+Ôªøusing System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Resultado de um serviÁo de frete calculado.
+///     Resultado de um servi√ßo de frete calculado.
 /// </summary>
 public class ShippingServiceResult
 {
     /// <summary>
-    ///     ID do serviÁo.
+    ///     ID do servi√ßo.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
     /// <summary>
-    ///     Nome do serviÁo (ex: PAC, SEDEX).
+    ///     Nome do servi√ßo (ex: PAC, SEDEX).
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    ///     PreÁo do frete.
+    ///     Pre√ßo do frete.
     /// </summary>
-    [JsonProperty("price")]
+    [JsonPropertyName("price")]
     public decimal Price { get; set; }
 
     /// <summary>
     ///     Prazo de entrega em dias.
     /// </summary>
-    [JsonProperty("delivery_time")]
+    [JsonPropertyName("delivery_time")]
     public int DeliveryTime { get; set; }
 
     /// <summary>
-    ///     Indica se houve erro no c·lculo deste serviÁo.
+    ///     Indica se houve erro no c√°lculo deste servi√ßo.
     /// </summary>
-    [JsonProperty("error")]
+    [JsonPropertyName("error")]
     public string? Error { get; set; }
 }
+

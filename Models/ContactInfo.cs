@@ -1,75 +1,76 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Informações detalhadas do remetente ou destinatário.
+///     InformaÃ§Ãµes detalhadas do remetente ou destinatÃ¡rio.
 /// </summary>
 public class ContactInfo
 {
     /// <summary>
     ///     Nome completo (precisa ter nome e sobrenome).
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    ///     Rua do endereço.
+    ///     Rua do endereÃ§o.
     /// </summary>
-    [JsonProperty("address")]
+    [JsonPropertyName("address")]
     public string Address { get; set; } = string.Empty;
 
     /// <summary>
-    ///     Complemento do endereço.
+    ///     Complemento do endereÃ§o.
     /// </summary>
-    [JsonProperty("complement")]
+    [JsonPropertyName("complement")]
     public string? Complement { get; set; }
 
     /// <summary>
-    ///     Número do endereço.
+    ///     NÃºmero do endereÃ§o.
     /// </summary>
-    [JsonProperty("number")]
+    [JsonPropertyName("number")]
     public string? Number { get; set; }
 
     /// <summary>
     ///     Bairro.
     /// </summary>
-    [JsonProperty("district")]
+    [JsonPropertyName("district")]
     public string District { get; set; } = string.Empty;
 
     /// <summary>
     ///     Cidade.
     /// </summary>
-    [JsonProperty("city")]
+    [JsonPropertyName("city")]
     public string City { get; set; } = string.Empty;
 
     /// <summary>
-    ///     Código do estado (ex: SP).
+    ///     CÃ³digo do estado (ex: SP).
     /// </summary>
-    [JsonProperty("state_abbr")]
+    [JsonPropertyName("state_abbr")]
     public string StateAbbr { get; set; } = string.Empty;
 
     /// <summary>
     ///     CEP.
     /// </summary>
-    [JsonProperty("postal_code")]
+    [JsonPropertyName("postal_code")]
     public string PostalCode { get; set; } = string.Empty;
 
     /// <summary>
     ///     CPF ou CNPJ.
     /// </summary>
-    [JsonProperty("document")]
+    [JsonPropertyName("document")]
     public string? Document { get; set; }
 
     /// <summary>
-    ///     E-mail (opcional para destinatário).
+    ///     E-mail (opcional para destinatÃ¡rio).
     /// </summary>
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string? Email { get; set; }
 
     /// <summary>
-    ///     Código do país (sempre "BR").
+    ///     CÃ³digo do paÃ­s (sempre "BR").
     /// </summary>
-    [JsonProperty("country_id")]
+    [JsonPropertyName("country_id")]
     public string CountryId { get; set; } = "BR";
 }
+

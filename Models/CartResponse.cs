@@ -1,21 +1,22 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Resposta da criação de frete no carrinho.
+///     Resposta da criaÃ§Ã£o de frete no carrinho.
 /// </summary>
 public class CartResponse
 {
     /// <summary>
     ///     ID da etiqueta gerada.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; } = string.Empty;
 
     /// <summary>
     ///     Status da etiqueta (ex: pending).
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; } = string.Empty;
 }
+

@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class ServiceRestrictions
 {
-    [JsonProperty("insurance_value")] public MinMaxRange InsuranceValue { get; set; } = new();
+    [JsonPropertyName("insurance_value")] public MinMaxRange InsuranceValue { get; set; } = new();
 
-    [JsonProperty("formats")] public ServiceFormats Formats { get; set; } = new();
+    [JsonPropertyName("formats")] public ServiceFormats Formats { get; set; } = new();
 }
+

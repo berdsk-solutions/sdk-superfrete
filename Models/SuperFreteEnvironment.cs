@@ -1,7 +1,7 @@
-namespace Berdsk.Sdk.SuperFrete.Models;
+ï»¿namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Define os ambientes disponíveis para a API do SuperFrete.
+///     Define os ambientes disponÃ­veis para a API do SuperFrete.
 /// </summary>
 public enum SuperFreteEnvironment
 {
@@ -11,7 +11,8 @@ public enum SuperFreteEnvironment
     Sandbox,
 
     /// <summary>
-    ///     Ambiente de produção.
+    ///     Ambiente de produÃ§Ã£o.
     /// </summary>
     Production
 }
+

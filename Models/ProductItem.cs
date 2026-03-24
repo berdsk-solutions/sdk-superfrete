@@ -1,39 +1,40 @@
-using Newtonsoft.Json;
+Ôªøusing System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Representa um produto individual para c·lculo de frete.
+///     Representa um produto individual para c√°lculo de frete.
 /// </summary>
 public class ProductItem
 {
     /// <summary>
     ///     Quantidade deste produto.
     /// </summary>
-    [JsonProperty("quantity")]
+    [JsonPropertyName("quantity")]
     public int Quantity { get; set; } = 1;
 
     /// <summary>
     ///     Peso do produto em quilogramas (kg).
     /// </summary>
-    [JsonProperty("weight")]
+    [JsonPropertyName("weight")]
     public double Weight { get; set; }
 
     /// <summary>
-    ///     Altura do produto em centÌmetros (cm).
+    ///     Altura do produto em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("height")]
+    [JsonPropertyName("height")]
     public double Height { get; set; }
 
     /// <summary>
-    ///     Largura do produto em centÌmetros (cm).
+    ///     Largura do produto em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("width")]
+    [JsonPropertyName("width")]
     public double Width { get; set; }
 
     /// <summary>
-    ///     Comprimento do produto em centÌmetros (cm).
+    ///     Comprimento do produto em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("length")]
+    [JsonPropertyName("length")]
     public double Length { get; set; }
 }
+

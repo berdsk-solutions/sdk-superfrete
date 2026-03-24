@@ -1,7 +1,7 @@
-namespace Berdsk.Sdk.SuperFrete.Models;
+﻿namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Eventos dispon�veis para webhooks.
+///     Eventos disponíveis para webhooks.
 /// </summary>
 public static class WebhookEvents
 {
@@ -12,3 +12,4 @@ public static class WebhookEvents
     public const string OrderDelivered = "order.delivered";
     public const string OrderCancelled = "order.cancelled";
 }
+

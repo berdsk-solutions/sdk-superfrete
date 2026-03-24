@@ -1,45 +1,46 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Requisi��o para o c�lculo de frete.
+///     Requisiï¿½ï¿½o para o cï¿½lculo de frete.
 /// </summary>
 public class CalculatorRequest
 {
     /// <summary>
     ///     CEP de origem.
     /// </summary>
-    [JsonProperty("from")]
+    [JsonPropertyName("from")]
     public PostalAddress From { get; set; } = new();
 
     /// <summary>
     ///     CEP de destino.
     /// </summary>
-    [JsonProperty("to")]
+    [JsonPropertyName("to")]
     public PostalAddress To { get; set; } = new();
 
     /// <summary>
-    ///     Lista com os c�digos dos servi�os de entrega (ex: "1,2,17").
+    ///     Lista com os cï¿½digos dos serviï¿½os de entrega (ex: "1,2,17").
     /// </summary>
-    [JsonProperty("services")]
+    [JsonPropertyName("services")]
     public string Services { get; set; } = "1,2,17";
 
     /// <summary>
-    ///     Op��es adicionais do c�lculo.
+    ///     Opï¿½ï¿½es adicionais do cï¿½lculo.
     /// </summary>
-    [JsonProperty("options")]
+    [JsonPropertyName("options")]
     public ShippingOptions Options { get; set; } = new();
 
     /// <summary>
-    ///     Dimens�es da caixa (se conhecidas).
+    ///     Dimensï¿½es da caixa (se conhecidas).
     /// </summary>
-    [JsonProperty("package")]
+    [JsonPropertyName("package")]
     public PackageDimensions? Package { get; set; }
 
     /// <summary>
-    ///     Lista de produtos individuais (se as dimens�es da caixa n�o forem conhecidas).
+    ///     Lista de produtos individuais (se as dimensï¿½es da caixa nï¿½o forem conhecidas).
     /// </summary>
-    [JsonProperty("products")]
+    [JsonPropertyName("products")]
     public List<ProductItem>? Products { get; set; }
 }
+

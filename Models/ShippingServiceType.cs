@@ -1,7 +1,7 @@
-namespace Berdsk.Sdk.SuperFrete.Models;
+ï»¿namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Códigos de serviços suportados pela SuperFrete.
+///     CÃ³digos de serviÃ§os suportados pela SuperFrete.
 /// </summary>
 public enum ShippingServiceType
 {
@@ -26,7 +26,8 @@ public enum ShippingServiceType
     MiniEnvios = 17,
 
     /// <summary>
-    ///     Loggi Econômico
+    ///     Loggi EconÃ´mico
     /// </summary>
     Loggi = 31
 }
+

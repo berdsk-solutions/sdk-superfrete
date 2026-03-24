@@ -1,27 +1,28 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Produto para declaração de conteúdo.
+///     Produto para declaraÃ§Ã£o de conteÃºdo.
 /// </summary>
 public class DeclarationProduct
 {
     /// <summary>
     ///     Nome do produto.
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
     ///     Quantidade do produto.
     /// </summary>
-    [JsonProperty("quantity")]
+    [JsonPropertyName("quantity")]
     public int Quantity { get; set; }
 
     /// <summary>
-    ///     Valor unitário de cada produto.
+    ///     Valor unitÃ¡rio de cada produto.
     /// </summary>
-    [JsonProperty("unitary_value")]
+    [JsonPropertyName("unitary_value")]
     public decimal UnitaryValue { get; set; }
 }
+

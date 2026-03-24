@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class PrintInfo
 {
-    [JsonProperty("url")] public string Url { get; set; } = string.Empty;
+    [JsonPropertyName("url")] public string Url { get; set; } = string.Empty;
 }
+

@@ -1,33 +1,34 @@
-using Newtonsoft.Json;
+Ôªøusing System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Representa as dimensıes e peso de um volume ou pacote.
+///     Representa as dimens√µes e peso de um volume ou pacote.
 /// </summary>
 public class PackageDimensions
 {
     /// <summary>
-    ///     Altura em centÌmetros (cm).
+    ///     Altura em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("height")]
+    [JsonPropertyName("height")]
     public double Height { get; set; }
 
     /// <summary>
-    ///     Largura em centÌmetros (cm).
+    ///     Largura em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("width")]
+    [JsonPropertyName("width")]
     public double Width { get; set; }
 
     /// <summary>
-    ///     Comprimento em centÌmetros (cm).
+    ///     Comprimento em cent√≠metros (cm).
     /// </summary>
-    [JsonProperty("length")]
+    [JsonPropertyName("length")]
     public double Length { get; set; }
 
     /// <summary>
     ///     Peso em quilogramas (kg).
     /// </summary>
-    [JsonProperty("weight")]
+    [JsonPropertyName("weight")]
     public double Weight { get; set; }
 }
+

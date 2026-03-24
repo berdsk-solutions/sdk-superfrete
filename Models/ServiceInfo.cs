@@ -1,23 +1,24 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Informações técnicas de um serviço de entrega.
+///     InformaÃ§Ãµes tÃ©cnicas de um serviÃ§o de entrega.
 /// </summary>
 public class ServiceInfo
 {
-    [JsonProperty("name")] public string Name { get; set; } = string.Empty;
+    [JsonPropertyName("name")] public string Name { get; set; } = string.Empty;
 
-    [JsonProperty("type")] public string Type { get; set; } = string.Empty;
+    [JsonPropertyName("type")] public string Type { get; set; } = string.Empty;
 
-    [JsonProperty("range")] public string Range { get; set; } = string.Empty;
+    [JsonPropertyName("range")] public string Range { get; set; } = string.Empty;
 
-    [JsonProperty("restrictions")] public ServiceRestrictions Restrictions { get; set; } = new();
+    [JsonPropertyName("restrictions")] public ServiceRestrictions Restrictions { get; set; } = new();
 
-    [JsonProperty("requirements")] public List<string> Requirements { get; set; } = new();
+    [JsonPropertyName("requirements")] public List<string> Requirements { get; set; } = new();
 
-    [JsonProperty("optionals")] public List<string> Optionals { get; set; } = new();
+    [JsonPropertyName("optionals")] public List<string> Optionals { get; set; } = new();
 
-    [JsonProperty("company")] public CompanyInfo Company { get; set; } = new();
+    [JsonPropertyName("company")] public CompanyInfo Company { get; set; } = new();
 }
+

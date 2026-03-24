@@ -1,10 +1,11 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class CancelOrderInfo
 {
-    [JsonProperty("id")] public string Id { get; set; } = string.Empty;
+    [JsonPropertyName("id")] public string Id { get; set; } = string.Empty;
 
-    [JsonProperty("description")] public string Description { get; set; } = "Cancelado pelo usu�rio";
+    [JsonPropertyName("description")] public string Description { get; set; } = "Cancelado pelo usuário";
 }
+

@@ -1,4 +1,4 @@
-namespace Berdsk.Sdk.SuperFrete.Models;
+﻿namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
 ///     Resposta do cancelamento de pedido.
@@ -6,3 +6,4 @@ namespace Berdsk.Sdk.SuperFrete.Models;
 public class CancelOrderResponse : Dictionary<string, CancelStatus>
 {
 }
+

@@ -1,15 +1,16 @@
-using Newtonsoft.Json;
+ï»¿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Representa um endereço postal simplificado.
+///     Representa um endereÃ§o postal simplificado.
 /// </summary>
 public class PostalAddress
 {
     /// <summary>
-    ///     CEP do endereço.
+    ///     CEP do endereÃ§o.
     /// </summary>
-    [JsonProperty("postal_code")]
+    [JsonPropertyName("postal_code")]
     public string PostalCode { get; set; } = string.Empty;
 }
+

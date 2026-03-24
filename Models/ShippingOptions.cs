@@ -1,33 +1,34 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 /// <summary>
-///     Opções adicionais para o cálculo do frete.
+///     OpÃ§Ãµes adicionais para o cÃ¡lculo do frete.
 /// </summary>
 public class ShippingOptions
 {
     /// <summary>
-    ///     Indica se o serviço de Mão Própria deve ser considerado.
+    ///     Indica se o serviÃ§o de MÃ£o PrÃ³pria deve ser considerado.
     /// </summary>
-    [JsonProperty("own_hand")]
+    [JsonPropertyName("own_hand")]
     public bool OwnHand { get; set; }
 
     /// <summary>
-    ///     Indica se o serviço de Aviso de Recebimento deve ser considerado.
+    ///     Indica se o serviÃ§o de Aviso de Recebimento deve ser considerado.
     /// </summary>
-    [JsonProperty("receipt")]
+    [JsonPropertyName("receipt")]
     public bool Receipt { get; set; }
 
     /// <summary>
-    ///     Valor declarado da encomenda utilizado para cálculo do seguro.
+    ///     Valor declarado da encomenda utilizado para cÃ¡lculo do seguro.
     /// </summary>
-    [JsonProperty("insurance_value")]
+    [JsonPropertyName("insurance_value")]
     public decimal? InsuranceValue { get; set; }
 
     /// <summary>
-    ///     Indica se o cálculo deve incluir o seguro.
+    ///     Indica se o cÃ¡lculo deve incluir o seguro.
     /// </summary>
-    [JsonProperty("use_insurance_value")]
+    [JsonPropertyName("use_insurance_value")]
     public bool UseInsuranceValue { get; set; }
 }
+

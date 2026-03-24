@@ -1,6 +1,7 @@
 using System.Net.Http.Headers;
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Berdsk.Sdk.SuperFrete.Models;
 
 namespace Berdsk.Sdk.SuperFrete;
@@ -195,12 +196,15 @@ public class SuperFreteClient : IDisposable
         return await HandleResponseAsync<T>(response);
     }
 
+    private static readonly JsonSerializerOptions JsonOptions = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        PropertyNameCaseInsensitive = true
+    };
+
     private async Task<T> PostAsync<T>(string endpoint, object data)
     {
-        var json = JsonConvert.SerializeObject(data, new JsonSerializerSettings
-        {
-            NullValueHandling = NullValueHandling.Ignore
-        });
+        var json = JsonSerializer.Serialize(data, JsonOptions);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync(endpoint, content);
         return await HandleResponseAsync<T>(response);
@@ -208,10 +212,7 @@ public class SuperFreteClient : IDisposable
 
     private async Task<T> PutAsync<T>(string endpoint, object data)
     {
-        var json = JsonConvert.SerializeObject(data, new JsonSerializerSettings
-        {
-            NullValueHandling = NullValueHandling.Ignore
-        });
+        var json = JsonSerializer.Serialize(data, JsonOptions);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync(endpoint, content);
         return await HandleResponseAsync<T>(response);
@@ -228,11 +229,15 @@ public class SuperFreteClient : IDisposable
 
             try
             {
-                var errorObj = JsonConvert.DeserializeObject<dynamic>(content);
-                if (errorObj != null)
+                using var doc = JsonDocument.Parse(content);
+                var root = doc.RootElement;
+                if (root.TryGetProperty("message", out var messageProp))
                 {
-                    errorMessage = errorObj.message ?? errorMessage;
-                    errorCode = errorObj.code;
+                    errorMessage = messageProp.GetString() ?? errorMessage;
+                }
+                if (root.TryGetProperty("code", out var codeProp))
+                {
+                    errorCode = codeProp.GetString();
                 }
             }
             catch
@@ -246,7 +251,7 @@ public class SuperFreteClient : IDisposable
         if (string.IsNullOrWhiteSpace(content))
             return default!;
 
-        return JsonConvert.DeserializeObject<T>(content)!;
+        return JsonSerializer.Deserialize<T>(content, JsonOptions)!;
     }
 
     #endregion

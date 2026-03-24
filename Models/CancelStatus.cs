@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace Berdsk.Sdk.SuperFrete.Models;
 
 public class CancelStatus
 {
-    [JsonProperty("canceled")] public bool Canceled { get; set; }
+    [JsonPropertyName("canceled")] public bool Canceled { get; set; }
 }
+
