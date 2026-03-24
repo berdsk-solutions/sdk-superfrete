@@ -1,3 +1,4 @@
+next-version: 0.1.0 # <--- ADICIONE ISSO
 mode: ContinuousDelivery
 branches:
   master:

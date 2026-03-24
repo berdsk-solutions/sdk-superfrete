@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Necessário para o GitVersion calcular o histórico
+          fetch-depth: 0
 
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v3
@@ -23,25 +23,23 @@ jobs:
       - name: Determine Version
         uses: gittools/actions/gitversion/execute@v3
         id: gitversion
-
-      - name: Display GitVersion outputs
-        run: |
-          echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
+        with:
+          useConfigFile: true
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
 
-      - name: Restore dependencies
+      - name: Restore
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+        run: dotnet build --configuration Release --no-restore /p:Version="${{ env.GitVersion_NuGetVersionV2 }}"
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ./nupkg /p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+        run: dotnet pack --configuration Release --no-build --output ./nupkg /p:Version="${{ env.GitVersion_NuGetVersionV2 }}"
 
       - name: Push to NuGet
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && env.GitVersion_NuGetVersionV2 != ''
         run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
