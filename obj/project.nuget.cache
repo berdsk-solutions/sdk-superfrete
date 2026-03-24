@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PzlPc4qP7ds=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Thales\\Documents\\superfrete-wrapper\\Berdsk.Sdk.SuperFrete.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Thales\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

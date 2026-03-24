@@ -1,0 +1,12 @@
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.csproj.AssemblyReference.cache
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.GeneratedMSBuildEditorConfig.editorconfig
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.AssemblyInfoInputs.cache
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.AssemblyInfo.cs
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.csproj.CoreCompileInputs.cache
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/bin/Debug/net8.0/SuperFrete.Sdk.deps.json
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/bin/Debug/net8.0/SuperFrete.Sdk.dll
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/bin/Debug/net8.0/SuperFrete.Sdk.pdb
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.dll
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/refint/SuperFrete.Sdk.dll
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/SuperFrete.Sdk.pdb
+/home/ubuntu/SuperFreteWrapper/SuperFrete.Sdk/obj/Debug/net8.0/ref/SuperFrete.Sdk.dll
