@@ -1,0 +1,62 @@
+# Berdsk.Sdk.SuperFrete
+> SDK .NET moderno e tipado para a API SuperFrete, otimizado para consumo por LLMs.
+
+## Documentação Técnica (IA-Friendly)
+- [00. Comece Aqui (Início e FAQ)](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/00-comece-aqui.md): Ponto de entrada central, cenários de uso comuns e roadmap de leitura.
+- [01. SuperFreteClient](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/01-superfrete-client.md): Configuração inicial, ambientes, Singleton e Injeção de Dependência.
+- [02. Calculator](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/02-calculator.md): Cotação de fretes de PAC, SEDEX, Jadlog, Mini Envios e Loggi.
+- [03. Cart](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/03-cart.md): Adicionar envio ao carrinho — segundo passo do fluxo de etiqueta.
+- [04. Checkout](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/04-checkout.md): Pagar etiquetas com saldo SuperFrete — terceiro e último passo do fluxo.
+- [05. Orders](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/05-orders.md): Consulta, cancelamento, impressão e listagem paginada de pedidos.
+- [06. Webhooks](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/06-webhooks.md): CRUD de apps de webhook, recebimento de eventos e validação de assinatura HMAC-SHA256.
+- [07. Users](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/07-users.md): Dados do usuário autenticado, saldo disponível e endereços cadastrados.
+- [08. ShippingServices](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/08-shipping-services.md): Restrições técnicas de peso, dimensões e seguro por serviço de transporte.
+- [09. Helpers e Constantes](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/09-helpers.md): Dicionário completo de status, eventos, tipos de serviço e ordenação.
+- [10. Exceptions](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/10-exceptions.md): Guia de tratamento de erros tipados, depuração e retry.
+
+## Estrutura de Código
+- **Namespace raiz:** `Berdsk.Sdk.SuperFrete`
+- **Cliente principal:** `SuperFreteClient` — instancie como Singleton com token, ambiente e dados do User-Agent.
+- **Serviços:** Localizados em `src/Berdsk.Sdk.SuperFrete/Services/`. Cada serviço possui interface `ISf[Domain]Service` e implementação `Sf[Domain]Service`.
+- **DTOs:** Em `Services/[Domain]/Dtos/`. Padrão: `Sf[Operation]Request` para entrada, `Sf[Operation]Response` para saída.
+- **Helpers:** Em `src/Berdsk.Sdk.SuperFrete/Helpers/`. Use sempre as constantes em vez de strings literais.
+- **Exceções:** `SuperFreteException` é a base. Subclasses: `SfBadRequestException` (400), `SfUnauthorizedException` (401), `SfForbiddenException` (403), `SfNotFoundException` (404), `SfTooManyRequestsException` (429), `SfInternalServerErrorException` (500).
+
+## Fluxo Principal de Criação de Etiqueta
+```
+1. client.Calculator.CalculateShippingAsync(request)  → Obter Id e preço do serviço
+2. client.Cart.AddToCartAsync(request)                → Criar pedido (status: pending)
+3. client.Checkout.FinalizeOrderAsync(request)        → Pagar e gerar etiqueta (status: released)
+```
+
+## Helpers Disponíveis (namespace: Berdsk.Sdk.SuperFrete.Helpers)
+- `SuperFreteEnvironment` — `Sandbox` | `Production`
+- `SfShippingServiceType` — `Pac=1`, `Sedex=2`, `Jadlog=3`, `MiniEnvios=17`, `Loggi=31`
+- `SfOrderStatus` — `Pending`, `Released`, `Posted`, `Delivered`, `Canceled`
+- `SfWebhookEvent` — `OrderCreated`, `OrderReleased`, `OrderGenerated`, `OrderPosted`, `OrderDelivered`, `OrderCancelled`
+- `SfSortOrder` — `Ascending` (`"asc"`), `Descending` (`"desc"`)
+- `SfSortBy` — `CreatedAt` (`"created_at"`), `UpdatedAt` (`"updated_at"`)
+
+## Serviços do SuperFreteClient
+
+| Propriedade | Interface | Responsabilidade |
+| :--- | :--- | :--- |
+| `.Calculator` | `ISfCalculatorService` | Cotar fretes. |
+| `.ShippingServices` | `ISfShippingServicesService` | Info técnica dos serviços. |
+| `.Cart` | `ISfCartService` | Adicionar ao carrinho. |
+| `.Checkout` | `ISfCheckoutService` | Pagar etiquetas. |
+| `.Orders` | `ISfOrderService` | Gerenciar pedidos. |
+| `.Webhooks` | `ISfWebhookService` | CRUD de webhook apps. |
+| `.Users` | `ISfUserService` | Dados do usuário. |
+
+## Convenções de Código
+- Prefixo `Sf` em todas as classes SDK (exceto `SuperFreteClient` e `SuperFreteException`).
+- 100% XML documentation em membros públicos.
+- System.Text.Json — nunca Newtonsoft.Json.
+- Zero magic strings — use sempre `SfOrderStatus.X`, `SfWebhookEvent.X`, etc.
+- Todos os métodos retornam `T?` (nullable) — sempre verifique nulo.
+- Alveja `netstandard2.1`.
+
+## Repositório e Recursos
+- [README.md](./README.md): Visão geral, instalação e exemplos rápidos.
+- [LICENSE](./LICENSE): Licença MIT.
