@@ -122,27 +122,28 @@ Quando um evento ocorre, a SuperFrete faz uma requisição `POST` para a URL con
 
 ### Estrutura do Payload Recebido
 
-O payload é deserializável para `SfWebhookNotificationPayload`:
+O payload é deserializável para `SfWebhookPayload`:
 
 ```json
 {
-  "event": "order.delivered",
+  "event": "order.generated",
   "data": {
+    "id": "ClmHZOg0p9CWbpFwKsLm",
+    "order_id": "ClmHZOg0p9CWbpFwKsLm",
     "protocol": null,
-    "id": "ord_abc123",
-    "status": "delivered",
-    "tracking": "AA123456789BR",
+    "status": "generated",
+    "tracking": "AK038659733BR",
     "self_tracking": null,
-    "user_id": "usr_xyz",
-    "tags": [{ "tag": "pedido-001", "url": "https://meusite.com/pedidos/001" }],
-    "created_at": "2024-03-29T23:49:26+00:00",
-    "paid_at": "2024-03-29T23:50:47+00:00",
-    "generated_at": "2024-03-29T23:51:47+00:00",
-    "posted_at": "2024-03-29T23:55:00+00:00",
-    "delivered_at": "2024-03-29T23:57:47+00:00",
+    "user_id": "2F8TXAcSyLbSYefDlW4q2jaaciO2",
+    "tags": { "0": { "name": "order_id", "value": "order-1555" } },
+    "created_at": "2026-06-24T22:41:58.325Z",
+    "paid_at": "2026-06-24T22:42:18.395Z",
+    "generated_at": "2026-06-24T22:42:24.318Z",
+    "posted_at": null,
+    "delivered_at": null,
     "canceled_at": null,
     "expired_at": null,
-    "tracking_url": "rastreio.superfrete.com/#/tracking/xyz"
+    "tracking_url": null
   }
 }
 ```
@@ -183,7 +184,7 @@ public class SuperFreteWebhookController : ControllerBase
         }
 
         // Deserializar o payload
-        var payload = JsonSerializer.Deserialize<SfWebhookNotificationPayload>(payloadRaw,
+        var payload = JsonSerializer.Deserialize<SfWebhookPayload>(payloadRaw,
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
         if (payload == null) return BadRequest();
@@ -258,33 +259,44 @@ public class SuperFreteWebhookController : ControllerBase
 | `Url` | `string?` | URL do endpoint configurado. |
 | `SecretToken` | `string?` | Token secreto HMAC (retornado **apenas na criação**). |
 | `Events` | `string[]?` | Eventos configurados. |
-| `IsActive` | `bool?` | Se o webhook está ativo. |
-| `CreatedAt` | `string?` | Data de criação. |
-| `UpdatedAt` | `string?` | Data da última atualização. |
+| `IsActive` | `bool` | Se o webhook está ativo. |
+| `CreatedAt` | `SfFirestoreTimestamp?` | Data de criação (formato Firestore). |
+| `UpdatedAt` | `SfFirestoreTimestamp?` | Data da última atualização (formato Firestore). |
 
-### `SfWebhookNotificationPayload`
+### `SfWebhookPayload`
 
 | Propriedade | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `Event` | `string?` | Tipo do evento. Compare com `SfWebhookEvent`. |
-| `Data` | `SfWebhookNotificationData?` | Dados do pedido que gerou o evento. |
+| `Data` | `SfWebhookPayloadData?` | Dados do pedido que gerou o evento. |
 
-### `SfWebhookNotificationData`
+### `SfWebhookPayloadData`
 
 | Propriedade | Tipo | Descrição |
 | :--- | :--- | :--- |
 | `Id` | `string?` | ID do pedido. |
-| `Status` | `string?` | Status atual do pedido. |
+| `OrderId` | `string?` | ID do pedido (mesmo valor que `Id` na API atual). |
+| `Protocol` | `string?` | Protocolo interno. |
+| `Status` | `string?` | Status atual. Compare com `SfOrderStatus`. |
 | `Tracking` | `string?` | Código de rastreamento (disponível a partir de `order.generated`). |
-| `TrackingUrl` | `string?` | URL de rastreamento público. |
-| `Tags` | `SfWebhookNotificationTagData[]?` | Tags definidas na criação do pedido. |
-| `CreatedAt` | `string?` | Data de criação. |
+| `SelfTracking` | `string?` | Código de rastreamento próprio. |
+| `UserId` | `string?` | ID do usuário proprietário. |
+| `Tags` | `Dictionary<string, SfWebhookTag>?` | Tags indexadas por posição numérica em string (`"0"`, `"1"`...). |
+| `CreatedAt` | `string?` | Data de criação (ISO 8601). |
 | `PaidAt` | `string?` | Data de pagamento. |
 | `GeneratedAt` | `string?` | Data de geração da etiqueta. |
 | `PostedAt` | `string?` | Data de postagem. |
 | `DeliveredAt` | `string?` | Data de entrega. |
-| `CanceledAt` | `string?` | Data de cancelamento (se cancelado). |
-| `ExpiredAt` | `string?` | Data de expiração (se expirado). |
+| `CanceledAt` | `string?` | Data de cancelamento. |
+| `ExpiredAt` | `string?` | Data de expiração. |
+| `TrackingUrl` | `string?` | URL de rastreamento público. |
+
+### `SfWebhookTag`
+
+| Propriedade | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `Name` | `string?` | Nome da tag (ex: `order_id`). |
+| `Value` | `string?` | Valor da tag (ex: `order-1555`). |
 
 ---
 

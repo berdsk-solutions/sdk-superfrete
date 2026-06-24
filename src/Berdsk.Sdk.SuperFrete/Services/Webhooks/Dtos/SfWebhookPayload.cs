@@ -4,11 +4,10 @@ using Berdsk.Sdk.SuperFrete.Helpers;
 namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
 {
     /// <summary>
-    ///     Payload recebido pelo endpoint configurado no webhook quando um evento é disparado pela SuperFrete.
-    ///     Utilize o campo <see cref="Event" /> para determinar qual ação foi executada e processar
-    ///     os dados em <see cref="Data" /> adequadamente.
+    ///     Payload recebido no endpoint configurado no webhook quando a SuperFrete dispara um evento.
+    ///     Deserialize o body da requisição recebida nesta classe para processar a notificação.
     /// </summary>
-    public class SfWebhookNotificationPayload
+    public class SfWebhookPayload
     {
         /// <summary>
         ///     Tipo do evento que originou a notificação.
@@ -18,9 +17,9 @@ namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
         public string? Event { get; set; }
 
         /// <summary>
-        ///     Dados do pedido/etiqueta associados ao evento disparado.
+        ///     Dados do pedido associados ao evento.
         /// </summary>
         [JsonPropertyName("data")]
-        public SfWebhookNotificationData? Data { get; set; }
+        public SfWebhookPayloadData? Data { get; set; }
     }
 }
