@@ -26,6 +26,15 @@ jobs:
         with:
           useConfigFile: true
 
+      - name: Resolve Version
+        id: version
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/master" ]; then
+            echo "value=${{ steps.gitversion.outputs.majorMinorPatch }}" >> $GITHUB_OUTPUT
+          else
+            echo "value=${{ steps.gitversion.outputs.semVer }}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -36,24 +45,12 @@ jobs:
 
       - name: Build
         run: |
-          # Captura a versão semVer do output da action
-          VERSION="${{ steps.gitversion.outputs.semVer }}"
-          if [ -z "$VERSION" ]; then VERSION="0.1.0-preview"; fi
-          echo "Building version: $VERSION"
-          dotnet build --configuration Release --no-restore /p:Version="$VERSION"
+          echo "Building version: ${{ steps.version.outputs.value }}"
+          dotnet build --configuration Release --no-restore /p:Version="${{ steps.version.outputs.value }}"
 
       - name: Pack
-        run: |
-          VERSION="${{ steps.gitversion.outputs.semVer }}"
-          if [ -z "$VERSION" ]; then VERSION="0.1.0-preview"; fi
-          dotnet pack --configuration Release --no-build --output ./nupkg /p:Version="$VERSION"
+        run: dotnet pack --configuration Release --no-build --output ./nupkg /p:Version="${{ steps.version.outputs.value }}"
 
       - name: Push to NuGet
         if: github.event_name == 'push'
-        run: |
-          VERSION="${{ steps.gitversion.outputs.semVer }}"
-          if [ ! -z "$VERSION" ]; then
-            dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
-          else
-            echo "Skipping push: Version not found."
-          fi
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
