@@ -18,7 +18,7 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Services
               "secret_token": "abc123def456",
               "events": ["order.posted", "order.delivered"],
               "is_active": true,
-              "created_at": "2023-10-01T12:00:00Z"
+              "created_at": { "_seconds": 1696156800, "_nanoseconds": 0 }
             }
             """;
 
@@ -64,7 +64,7 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Services
                     "url": "https://loja1.com/webhook",
                     "events": ["order.posted"],
                     "is_active": true,
-                    "created_at": "2023-10-01T12:00:00Z"
+                    "created_at": { "_seconds": 1696156800, "_nanoseconds": 0 }
                   },
                   {
                     "id": "webhook-app-456",
@@ -72,7 +72,7 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Services
                     "url": "https://loja2.com/webhook",
                     "events": ["order.delivered", "order.cancelled"],
                     "is_active": false,
-                    "created_at": "2023-10-05T08:30:00Z"
+                    "created_at": { "_seconds": 1696592400, "_nanoseconds": 0 }
                   }
                 ]
                 """;
@@ -104,7 +104,7 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Services
                   "url": "https://novo.com/webhook",
                   "events": ["order.created"],
                   "is_active": false,
-                  "updated_at": "2023-10-10T09:00:00Z"
+                  "updated_at": { "_seconds": 1696928400, "_nanoseconds": 0 }
                 }
                 """;
             var handler = new MockHttpMessageHandler(HttpStatusCode.OK, updatedJson);
@@ -126,7 +126,7 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Services
             result.Should().NotBeNull();
             result!.Name.Should().Be("Webhook Atualizado");
             result.IsActive.Should().BeFalse();
-            result.UpdatedAt.Should().NotBeNullOrEmpty();
+            result.UpdatedAt.Should().NotBeNull();
             handler.LastRequest!.RequestUri!.ToString().Should().Contain("api/v0/webhook/webhook-app-123");
             handler.LastRequest.Method.Should().Be(HttpMethod.Put);
         }
