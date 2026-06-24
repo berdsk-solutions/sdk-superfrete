@@ -1,0 +1,59 @@
+name: Publish to NuGet
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: 6.x
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v3
+        id: gitversion
+        with:
+          useConfigFile: true
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: |
+          # Captura a versão semVer do output da action
+          VERSION="${{ steps.gitversion.outputs.semVer }}"
+          if [ -z "$VERSION" ]; then VERSION="0.1.0-preview"; fi
+          echo "Building version: $VERSION"
+          dotnet build --configuration Release --no-restore /p:Version="$VERSION"
+
+      - name: Pack
+        run: |
+          VERSION="${{ steps.gitversion.outputs.semVer }}"
+          if [ -z "$VERSION" ]; then VERSION="0.1.0-preview"; fi
+          dotnet pack --configuration Release --no-build --output ./nupkg /p:Version="$VERSION"
+
+      - name: Push to NuGet
+        if: github.event_name == 'push'
+        run: |
+          VERSION="${{ steps.gitversion.outputs.semVer }}"
+          if [ ! -z "$VERSION" ]; then
+            dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          else
+            echo "Skipping push: Version not found."
+          fi

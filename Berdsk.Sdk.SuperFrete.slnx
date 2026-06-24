@@ -1,0 +1,8 @@
+<Solution>
+    <Folder Name="/src/">
+        <Project Path="src/Berdsk.Sdk.SuperFrete/Berdsk.Sdk.SuperFrete.csproj"/>
+    </Folder>
+    <Folder Name="/tests/">
+        <Project Path="tests/Berdsk.Sdk.SuperFrete.Tests.Unit/Berdsk.Sdk.SuperFrete.Tests.Unit.csproj"/>
+    </Folder>
+</Solution>

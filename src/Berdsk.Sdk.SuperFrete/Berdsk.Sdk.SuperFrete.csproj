@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <PackageId>Berdsk.Sdk.SuperFrete</PackageId>
+        <AssemblyName>Berdsk.Sdk.SuperFrete</AssemblyName>
+        <RootNamespace>Berdsk.Sdk.SuperFrete</RootNamespace>
+        <Title>Berdsk.Sdk.SuperFrete</Title>
+        <Authors>Berdsk</Authors>
+        <Company>Berdsk</Company>
+        <Description>SDK não oficial para integração com a API da SuperFrete. 100% cobertura de endpoints.</Description>
+        <PackageTags>superfrete;frete;correios;envios;logistica;berdsk;sdk</PackageTags>
+        <PackageProjectUrl>https://berdsk.com.br</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>berdsk-icon.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://berdsk.com.br#sdk</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/berdsk-solutions/sdk-superfrete</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageRepositoryUrl>https://github.com/berdsk-solutions/sdk-pagarme-v5</PackageRepositoryUrl>
+        <Version Condition="'$(Version)' == ''">1.0.0</Version>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="System.Text.Json" Version="8.0.5"/>
+        <PackageReference Include="System.Net.Http.Json" Version="8.0.1"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="..\..\resources\berdsk-icon.png" Pack="true" PackagePath="\"/>
+        <None Include="..\..\resources\superfrete.png" Pack="true" PackagePath="\"/>
+        <None Include="..\..\resources\berdsk-brand.png" Pack="true" PackagePath="\"/>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+    
+</Project>
