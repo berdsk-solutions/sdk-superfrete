@@ -2,17 +2,17 @@
 > SDK .NET moderno e tipado para a API SuperFrete, otimizado para consumo por LLMs.
 
 ## Documentação Técnica (IA-Friendly)
-- [00. Comece Aqui (Início e FAQ)](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/00-comece-aqui.md): Ponto de entrada central, cenários de uso comuns e roadmap de leitura.
-- [01. SuperFreteClient](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/01-superfrete-client.md): Configuração inicial, ambientes, Singleton e Injeção de Dependência.
-- [02. Calculator](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/02-calculator.md): Cotação de fretes de PAC, SEDEX, Jadlog, Mini Envios e Loggi.
-- [03. Cart](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/03-cart.md): Adicionar envio ao carrinho — segundo passo do fluxo de etiqueta.
-- [04. Checkout](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/04-checkout.md): Pagar etiquetas com saldo SuperFrete — terceiro e último passo do fluxo.
-- [05. Orders](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/05-orders.md): Consulta, cancelamento, impressão e listagem paginada de pedidos.
-- [06. Webhooks](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/06-webhooks.md): CRUD de apps de webhook, recebimento de eventos e validação de assinatura HMAC-SHA256.
-- [07. Users](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/07-users.md): Dados do usuário autenticado, saldo disponível e endereços cadastrados.
-- [08. ShippingServices](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/08-shipping-services.md): Restrições técnicas de peso, dimensões e seguro por serviço de transporte.
-- [09. Helpers e Constantes](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/09-helpers.md): Dicionário completo de status, eventos, tipos de serviço e ordenação.
-- [10. Exceptions](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/10-exceptions.md): Guia de tratamento de erros tipados, depuração e retry.
+- [00. Comece Aqui (Início e FAQ)](./claude-skill/00-comece-aqui.md): Ponto de entrada central, cenários de uso comuns e roadmap de leitura.
+- [01. SuperFreteClient](./claude-skill/01-superfrete-client.md): Configuração inicial, ambientes, Singleton e Injeção de Dependência.
+- [02. Calculator](./claude-skill/02-calculator.md): Cotação de fretes de PAC, SEDEX, Jadlog, Mini Envios e Loggi.
+- [03. Cart](./claude-skill/03-cart.md): Adicionar envio ao carrinho — segundo passo do fluxo de etiqueta.
+- [04. Checkout](./claude-skill/04-checkout.md): Pagar etiquetas com saldo SuperFrete — terceiro e último passo do fluxo.
+- [05. Orders](./claude-skill/05-orders.md): Consulta, cancelamento, impressão e listagem paginada de pedidos.
+- [06. Webhooks](./claude-skill/06-webhooks.md): CRUD de apps de webhook, recebimento de eventos e validação de assinatura HMAC-SHA256.
+- [07. Users](./claude-skill/07-users.md): Dados do usuário autenticado, saldo disponível e endereços cadastrados.
+- [08. ShippingServices](./claude-skill/08-shipping-services.md): Restrições técnicas de peso, dimensões e seguro por serviço de transporte.
+- [09. Helpers e Constantes](./claude-skill/09-helpers.md): Dicionário completo de status, eventos, tipos de serviço e ordenação.
+- [10. Exceptions](./claude-skill/10-exceptions.md): Guia de tratamento de erros tipados, depuração e retry.
 
 ## Estrutura de Código
 - **Namespace raiz:** `Berdsk.Sdk.SuperFrete`
