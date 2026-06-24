@@ -47,16 +47,34 @@ namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
         public bool IsActive { get; set; }
 
         /// <summary>
-        ///     Data e hora de criação do webhook no formato ISO 8601.
+        ///     Data e hora de criação do webhook no formato Firestore Timestamp.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; }
+        public SfFirestoreTimestamp? CreatedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora da última atualização do webhook no formato ISO 8601.
+        ///     Data e hora da última atualização do webhook no formato Firestore Timestamp.
         ///     Será <c>null</c> se o webhook nunca foi atualizado.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; }
+        public SfFirestoreTimestamp? UpdatedAt { get; set; }
+    }
+
+    /// <summary>
+    ///     Representa um timestamp no formato Firestore, com segundos e nanossegundos desde a epoch Unix.
+    /// </summary>
+    public class SfFirestoreTimestamp
+    {
+        /// <summary>
+        ///     Segundos desde a epoch Unix (1970-01-01T00:00:00Z).
+        /// </summary>
+        [JsonPropertyName("_seconds")]
+        public long Seconds { get; set; }
+
+        /// <summary>
+        ///     Fração de segundo em nanossegundos.
+        /// </summary>
+        [JsonPropertyName("_nanoseconds")]
+        public long Nanoseconds { get; set; }
     }
 }
