@@ -205,21 +205,22 @@ catch (SuperFreteException ex)
 
 ## Documentação Completa
 
-A documentação detalhada com exemplos para cada serviço está em `src/Berdsk.Sdk.SuperFrete/Docs/Sdk/`:
+A documentação detalhada com exemplos para cada serviço está em [`claude-skill/`](./claude-skill/):
 
 | Arquivo | Conteúdo |
 | :--- | :--- |
-| [00-comece-aqui.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/00-comece-aqui.md) | Guia de início rápido e FAQ |
-| [01-superfrete-client.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/01-superfrete-client.md) | Configuração e DI |
-| [02-calculator.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/02-calculator.md) | Cotação de fretes |
-| [03-cart.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/03-cart.md) | Adicionar ao carrinho |
-| [04-checkout.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/04-checkout.md) | Pagar etiquetas |
-| [05-orders.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/05-orders.md) | Gestão de pedidos |
-| [06-webhooks.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/06-webhooks.md) | Webhooks e HMAC |
-| [07-users.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/07-users.md) | Dados do usuário |
-| [08-shipping-services.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/08-shipping-services.md) | Info das transportadoras |
-| [09-helpers.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/09-helpers.md) | Helpers e constantes |
-| [10-exceptions.md](./src/Berdsk.Sdk.SuperFrete/Docs/Sdk/10-exceptions.md) | Tratamento de erros |
+| [SKILL.md](./claude-skill/SKILL.md) | Índice da skill — ponto de entrada para LLMs |
+| [00-comece-aqui.md](./claude-skill/00-comece-aqui.md) | Guia de início rápido e FAQ |
+| [01-superfrete-client.md](./claude-skill/01-superfrete-client.md) | Configuração e DI |
+| [02-calculator.md](./claude-skill/02-calculator.md) | Cotação de fretes |
+| [03-cart.md](./claude-skill/03-cart.md) | Adicionar ao carrinho |
+| [04-checkout.md](./claude-skill/04-checkout.md) | Pagar etiquetas |
+| [05-orders.md](./claude-skill/05-orders.md) | Gestão de pedidos |
+| [06-webhooks.md](./claude-skill/06-webhooks.md) | Webhooks e HMAC |
+| [07-users.md](./claude-skill/07-users.md) | Dados do usuário |
+| [08-shipping-services.md](./claude-skill/08-shipping-services.md) | Info das transportadoras |
+| [09-helpers.md](./claude-skill/09-helpers.md) | Helpers e constantes |
+| [10-exceptions.md](./claude-skill/10-exceptions.md) | Tratamento de erros |
 
 Para consumo por LLMs, consulte [llms.txt](./llms.txt).
 
