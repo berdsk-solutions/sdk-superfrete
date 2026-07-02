@@ -137,7 +137,7 @@ Checkout.FinalizeOrderAsync()        →  pagar e gerar etiqueta (status: releas
 
 - **Payload real** é `SfWebhookPayload` → `SfWebhookPayloadData`
 - **`tags`** é `Dictionary<string, SfWebhookTag>` com chaves numéricas em string (`"0"`, `"1"`...) — **não é array**
-- **`created_at`/`updated_at`** em `SfWebhookResponse` são `SfFirestoreTimestamp` (`Seconds`, `Nanoseconds`) — não string ISO
+- **Todos os campos de data** são `DateTime?` em UTC — o `SfDateTimeConverter` detecta automaticamente string ISO 8601, objeto Firestore Timestamp (`_seconds`/`_nanoseconds`) ou unix epoch
 - **`SecretToken`** retornado **apenas na criação** — armazene imediatamente em variável de ambiente
 - **Header de validação:** `X-ME-Signature` — valide com HMAC-SHA256 usando `CryptographicOperations.FixedTimeEquals`
 - **Sempre retorne HTTP 200** — a SuperFrete reenvia até 5× em caso de falha (intervalo de 15 min)

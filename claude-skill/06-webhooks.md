@@ -260,8 +260,8 @@ public class SuperFreteWebhookController : ControllerBase
 | `SecretToken` | `string?` | Token secreto HMAC (retornado **apenas na criação**). |
 | `Events` | `string[]?` | Eventos configurados. |
 | `IsActive` | `bool` | Se o webhook está ativo. |
-| `CreatedAt` | `SfFirestoreTimestamp?` | Data de criação (formato Firestore). |
-| `UpdatedAt` | `SfFirestoreTimestamp?` | Data da última atualização (formato Firestore). |
+| `CreatedAt` | `DateTime?` | Data de criação em UTC (aceita ISO 8601 ou Firestore Timestamp automaticamente). |
+| `UpdatedAt` | `DateTime?` | Data da última atualização em UTC (aceita ISO 8601 ou Firestore Timestamp automaticamente). |
 
 ### `SfWebhookPayload`
 
@@ -282,13 +282,13 @@ public class SuperFreteWebhookController : ControllerBase
 | `SelfTracking` | `string?` | Código de rastreamento próprio. |
 | `UserId` | `string?` | ID do usuário proprietário. |
 | `Tags` | `Dictionary<string, SfWebhookTag>?` | Tags indexadas por posição numérica em string (`"0"`, `"1"`...). |
-| `CreatedAt` | `string?` | Data de criação (ISO 8601). |
-| `PaidAt` | `string?` | Data de pagamento. |
-| `GeneratedAt` | `string?` | Data de geração da etiqueta. |
-| `PostedAt` | `string?` | Data de postagem. |
-| `DeliveredAt` | `string?` | Data de entrega. |
-| `CanceledAt` | `string?` | Data de cancelamento. |
-| `ExpiredAt` | `string?` | Data de expiração. |
+| `CreatedAt` | `DateTime?` | Data de criação em UTC. |
+| `PaidAt` | `DateTime?` | Data de pagamento. |
+| `GeneratedAt` | `DateTime?` | Data de geração da etiqueta. |
+| `PostedAt` | `DateTime?` | Data de postagem. |
+| `DeliveredAt` | `DateTime?` | Data de entrega. |
+| `CanceledAt` | `DateTime?` | Data de cancelamento. |
+| `ExpiredAt` | `DateTime?` | Data de expiração. |
 | `TrackingUrl` | `string?` | URL de rastreamento público. |
 
 ### `SfWebhookTag`

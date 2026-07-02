@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
+using Berdsk.Sdk.SuperFrete.Converters;
 using Berdsk.Sdk.SuperFrete.Helpers;
 
 namespace Berdsk.Sdk.SuperFrete.Services.Orders.Dtos
@@ -146,29 +148,34 @@ namespace Berdsk.Sdk.SuperFrete.Services.Orders.Dtos
         public float? InsuranceValue { get; set; }
 
         /// <summary>
-        ///     Data e hora de geração da etiqueta pela transportadora (ISO 8601 UTC).
+        ///     Data e hora de geração da etiqueta pela transportadora, em UTC.
+        ///     Aceita string ISO 8601 ou objeto Firestore Timestamp — convertidos automaticamente.
         /// </summary>
         [JsonPropertyName("generated_at")]
-        public string? GeneratedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? GeneratedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora de postagem na transportadora (ISO 8601 UTC).
+        ///     Data e hora de postagem na transportadora, em UTC.
         ///     <c>null</c> até a encomenda ser postada.
         /// </summary>
         [JsonPropertyName("posted_at")]
-        public string? PostedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? PostedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora de criação da etiqueta (ISO 8601 UTC).
+        ///     Data e hora de criação da etiqueta, em UTC.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora da última atualização da etiqueta (ISO 8601 UTC).
+        ///     Data e hora da última atualização da etiqueta, em UTC.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public string? UpdatedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? UpdatedAt { get; set; }
 
         /// <summary>
         ///     Dados para impressão da etiqueta em PDF.
