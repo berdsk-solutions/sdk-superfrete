@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Berdsk.Sdk.SuperFrete.Converters;
 
 namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
 {
@@ -59,46 +61,54 @@ namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
         public Dictionary<string, SfWebhookTag>? Tags { get; set; }
 
         /// <summary>
-        ///     Data e hora de criação do pedido (ISO 8601).
+        ///     Data e hora de criação do pedido em UTC.
+        ///     Aceita string ISO 8601 ou objeto Firestore Timestamp — convertidos automaticamente.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que o pagamento foi confirmado (ISO 8601). <c>null</c> se ainda não pago.
+        ///     Data e hora em que o pagamento foi confirmado, em UTC. <c>null</c> se ainda não pago.
         /// </summary>
         [JsonPropertyName("paid_at")]
-        public string? PaidAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? PaidAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que a etiqueta foi gerada (ISO 8601). <c>null</c> antes do evento <c>order.generated</c>.
+        ///     Data e hora em que a etiqueta foi gerada, em UTC. <c>null</c> antes do evento <c>order.generated</c>.
         /// </summary>
         [JsonPropertyName("generated_at")]
-        public string? GeneratedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? GeneratedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que o objeto foi postado na transportadora (ISO 8601). <c>null</c> antes de <c>order.posted</c>.
+        ///     Data e hora em que o objeto foi postado na transportadora, em UTC. <c>null</c> antes de <c>order.posted</c>.
         /// </summary>
         [JsonPropertyName("posted_at")]
-        public string? PostedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? PostedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que o objeto foi entregue ao destinatário (ISO 8601). <c>null</c> antes de <c>order.delivered</c>.
+        ///     Data e hora em que o objeto foi entregue ao destinatário, em UTC. <c>null</c> antes de <c>order.delivered</c>.
         /// </summary>
         [JsonPropertyName("delivered_at")]
-        public string? DeliveredAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? DeliveredAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que o pedido foi cancelado (ISO 8601). <c>null</c> se não cancelado.
+        ///     Data e hora em que o pedido foi cancelado, em UTC. <c>null</c> se não cancelado.
         /// </summary>
         [JsonPropertyName("canceled_at")]
-        public string? CanceledAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? CanceledAt { get; set; }
 
         /// <summary>
-        ///     Data e hora em que a etiqueta expirou (ISO 8601). <c>null</c> se não expirada.
+        ///     Data e hora em que a etiqueta expirou, em UTC. <c>null</c> se não expirada.
         /// </summary>
         [JsonPropertyName("expired_at")]
-        public string? ExpiredAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? ExpiredAt { get; set; }
 
         /// <summary>
         ///     URL de rastreamento do objeto no portal da SuperFrete. <c>null</c> quando indisponível.

@@ -1,4 +1,6 @@
+using System;
 using System.Text.Json.Serialization;
+using Berdsk.Sdk.SuperFrete.Converters;
 
 namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
 {
@@ -47,34 +49,20 @@ namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
         public bool IsActive { get; set; }
 
         /// <summary>
-        ///     Data e hora de criação do webhook no formato Firestore Timestamp.
+        ///     Data e hora de criação do webhook em UTC.
+        ///     A API pode retornar string ISO 8601 ou objeto Firestore Timestamp — ambos são convertidos automaticamente.
         /// </summary>
         [JsonPropertyName("created_at")]
-        public SfFirestoreTimestamp? CreatedAt { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        ///     Data e hora da última atualização do webhook no formato Firestore Timestamp.
+        ///     Data e hora da última atualização do webhook em UTC.
+        ///     A API pode retornar string ISO 8601 ou objeto Firestore Timestamp — ambos são convertidos automaticamente.
         ///     Será <c>null</c> se o webhook nunca foi atualizado.
         /// </summary>
         [JsonPropertyName("updated_at")]
-        public SfFirestoreTimestamp? UpdatedAt { get; set; }
-    }
-
-    /// <summary>
-    ///     Representa um timestamp no formato Firestore, com segundos e nanossegundos desde a epoch Unix.
-    /// </summary>
-    public class SfFirestoreTimestamp
-    {
-        /// <summary>
-        ///     Segundos desde a epoch Unix (1970-01-01T00:00:00Z).
-        /// </summary>
-        [JsonPropertyName("_seconds")]
-        public long Seconds { get; set; }
-
-        /// <summary>
-        ///     Fração de segundo em nanossegundos.
-        /// </summary>
-        [JsonPropertyName("_nanoseconds")]
-        public long Nanoseconds { get; set; }
+        [JsonConverter(typeof(SfDateTimeConverter))]
+        public DateTime? UpdatedAt { get; set; }
     }
 }

@@ -213,9 +213,9 @@ do
 | `Products` | `SfOrderProductResponse[]?` | Produtos declarados no envio. |
 | `Print` | `SfOrderPrintResponse?` | Link de impressão da etiqueta. |
 | `Tags` | `SfOrderTagResponse[]?` | Tags de rastreamento interno. |
-| `CreatedAt` | `string?` | Data/hora de criação. |
-| `PostedAt` | `string?` | Data/hora de postagem. |
-| `GeneratedAt` | `string?` | Data/hora de geração da etiqueta. |
+| `CreatedAt` | `DateTime?` | Data/hora de criação em UTC. |
+| `PostedAt` | `DateTime?` | Data/hora de postagem em UTC. |
+| `GeneratedAt` | `DateTime?` | Data/hora de geração da etiqueta em UTC. |
 | `Delivery` | `string?` | Data/hora de entrega. |
 
 ### `SfListOrdersRequest`

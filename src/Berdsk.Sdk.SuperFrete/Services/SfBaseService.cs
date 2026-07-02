@@ -5,6 +5,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Berdsk.Sdk.SuperFrete.Converters;
 
 namespace Berdsk.Sdk.SuperFrete.Services
 {
@@ -17,7 +18,8 @@ namespace Berdsk.Sdk.SuperFrete.Services
         private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            Converters = { new SfDateTimeConverter() }
         };
 
         /// <summary>
