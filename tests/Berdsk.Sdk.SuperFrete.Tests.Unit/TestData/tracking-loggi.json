@@ -1,0 +1,418 @@
+{
+  "superfrete": true,
+  "is_delayed": false,
+  "delay_days": null,
+  "application_id": 100,
+  "application_name": "tracking-page",
+  "application_display_name": "Página de Rastreio",
+  "tracking": {
+    "etiqueta": "ABCDEFGH",
+    "uid": "TestUserUid00000000000000001",
+    "sender_name": "João da Silva",
+    "email": "remetente@example.com",
+    "phone_number": "11999990000",
+    "order_number_magento": "2000000002",
+    "order_data": {
+      "tag": {
+        "origin": {
+          "city": "São Paulo",
+          "name": "João da Silva",
+          "email": "remetente@example.com",
+          "phone": "11999990000",
+          "number": "100",
+          "region": "SP",
+          "street": "Rua das Acácias",
+          "district": "Vila Primavera",
+          "lastname": "Silva",
+          "postcode": "01000000",
+          "firstname": "João",
+          "complement": "",
+          "phone_number": "11999990000"
+        },
+        "destiny": {
+          "city": "Nerópolis",
+          "name": "Ana Pereira Lima",
+          "email": "",
+          "phone": "",
+          "number": "12",
+          "region": "GO",
+          "street": "Rua das Laranjeiras",
+          "district": "Setor Central",
+          "postcode": "75460000",
+          "complement": "Lote 2"
+        }
+      },
+      "superpoint": {
+        "id": "PROVIDER|pegaki|EID|0001",
+        "mcu": "PROVIDER|pegaki|EID|0001",
+        "city": "SÃO PAULO",
+        "type": "public",
+        "unit": "PONTO EXEMPLO",
+        "active": true,
+        "number": "400",
+        "region": "SP",
+        "address": "AVENIDA EXEMPLO",
+        "idMongo": "PROVIDER|pegaki|EID|0001",
+        "carriers": {
+          "0": "correios",
+          "1": "jadlog",
+          "2": "loggi",
+          "3": "jt"
+        },
+        "distance": 0.85,
+        "favorite": true,
+        "postcode": "02900000",
+        "provider": "pegaki",
+        "created_at": "02/02/2026 21:40:40",
+        "deleted_at": null,
+        "updated_at": "19/06/2026 01:30:22",
+        "geolocation": {
+          "lat": -23.5,
+          "lon": -46.7
+        },
+        "company_name": "PONTO EXEMPLO",
+        "neighborhood": "VILA PRIMAVERA",
+        "opening_hours": "SEGUNDA A SEXTA, DAS 08:00 ÀS 18:00"
+      }
+    },
+    "orders_api_data": {
+      "uid": "TestUserUid00000000000000001",
+      "data": {
+        "tag": {
+          "origin": {
+            "city": "São Paulo",
+            "name": "João da Silva",
+            "email": "remetente@example.com",
+            "phone": "11999990000",
+            "number": "100",
+            "region": "SP",
+            "street": "Rua das Acácias",
+            "district": "Vila Primavera",
+            "lastname": "Silva",
+            "postcode": "01000000",
+            "firstname": "João",
+            "complement": "",
+            "phone_number": "11999990000"
+          },
+          "destiny": {
+            "city": "Nerópolis",
+            "name": "Ana Pereira Lima",
+            "email": "",
+            "phone": "",
+            "number": "12",
+            "region": "GO",
+            "street": "Rua das Laranjeiras",
+            "district": "Setor Central",
+            "postcode": "75460000",
+            "complement": "Lote 2"
+          }
+        },
+        "superpoint": {
+          "id": "PROVIDER|pegaki|EID|0001",
+          "mcu": "PROVIDER|pegaki|EID|0001",
+          "city": "SÃO PAULO",
+          "type": "public",
+          "unit": "PONTO EXEMPLO",
+          "active": true,
+          "number": "400",
+          "region": "SP",
+          "address": "AVENIDA EXEMPLO",
+          "idMongo": "PROVIDER|pegaki|EID|0001",
+          "carriers": {
+            "0": "correios",
+            "1": "jadlog",
+            "2": "loggi",
+            "3": "jt"
+          },
+          "distance": 0.85,
+          "favorite": true,
+          "postcode": "02900000",
+          "provider": "pegaki",
+          "created_at": "02/02/2026 21:40:40",
+          "deleted_at": null,
+          "updated_at": "19/06/2026 01:30:22",
+          "geolocation": {
+            "lat": -23.5,
+            "lon": -46.7
+          },
+          "company_name": "PONTO EXEMPLO",
+          "neighborhood": "VILA PRIMAVERA",
+          "opening_hours": "SEGUNDA A SEXTA, DAS 08:00 ÀS 18:00"
+        }
+      },
+      "status": "completed",
+      "payment": {
+        "use_credit_card": false,
+        "use_store_credit": true,
+        "credit_to_be_used": 18.89,
+        "applied_credit_amount": 18,
+        "amount_charged_to_credit_card": 0
+      },
+      "order_id": "01TESTORDERLOGGI000000001",
+      "carrier_data": {
+        "id": "7727TESTAAAAAAAAABCDEFGH",
+        "code": "ABCDEFGH",
+        "volume_print": {
+          "barCode": "TESTAAAAABCDEFGH"
+        },
+        "tracking_code": "ABCDEFGH"
+      },
+      "magento_data": {
+        "order_number": "2000000002"
+      },
+      "service_posted": {
+        "code": "FREIGHT_TYPE_ECONOMIC",
+        "data": {
+          "depth": "20",
+          "width": "12",
+          "height": "6",
+          "weight": 1,
+          "diameter": null,
+          "declared_value": null,
+          "declared_value_option": null
+        },
+        "date": {
+          "_seconds": 1782937684,
+          "_nanoseconds": 274000000
+        },
+        "total": 13.79,
+        "total_with_discount": 18.89,
+        "wasReturnedToSender": false,
+        "wasPostedAtWrongPudo": false,
+        "wrongPudoExtraAmount": 0
+      },
+      "service_calculated": {
+        "code": "FREIGHT_TYPE_ECONOMIC",
+        "data": {
+          "depth": 20,
+          "width": 12,
+          "height": 6,
+          "weight": 1,
+          "diameter": null,
+          "declared_value": null,
+          "declared_value_option": false
+        },
+        "name": "LOGGI",
+        "bonus": 0,
+        "level": 1,
+        "total": 13.14,
+        "carrier": "loggi",
+        "subtotal": 27,
+        "has_error": false,
+        "isContract": true,
+        "has_discount": true,
+        "delivery_time": 8,
+        "home_delivery": true,
+        "originPostCode": "01000000",
+        "destinyPostCode": "75460000",
+        "discount_amount": 9,
+        "has_observation": false,
+        "self_hand_amount": 0,
+        "max_delivery_time": 8,
+        "min_delivery_time": 8,
+        "saturday_delivery": true,
+        "has_counter_service": false,
+        "total_with_discount": 18,
+        "real_discount_amount": 9,
+        "declared_value_amount": null,
+        "discount_service_code": "FREIGHT_TYPE_ECONOMIC",
+        "receipt_notice_amount": 0,
+        "total_without_discount": 27
+      },
+      "content_declaration": [
+        {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "qty": "1",
+          "value": "149.00",
+          "description": "Kit produto exemplo"
+        }
+      ]
+    },
+    "current_date": "02/07/2026 21:50:38",
+    "recipient_name": "Ana Pereira Lima",
+    "recipient_address": "Rua das Laranjeiras, 12, Nerópolis, GO, 75460000",
+    "recipient_phone": "",
+    "shipping_modality": "LOGGI"
+  },
+  "provider_tracking": {
+    "success": true,
+    "provider": "loggi",
+    "tracking": {
+      "codigo": "ABCDEFGH",
+      "status": "Entregue",
+      "eventos": [
+        {
+          "data": "2026-07-01 17:23:34",
+          "status": "Entregue",
+          "unidade": "",
+          "descricao": "O pacote chegou ao destino final.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-25 14:34:14",
+          "status": "Em rota",
+          "unidade": "Trindade, GO",
+          "descricao": "O pacote está a caminho.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-25 13:50:14",
+          "status": "Chegou em uma base",
+          "unidade": "Trindade, GO",
+          "descricao": "Tudo certo, o pacote está em uma base da Loggi.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-25 03:05:47",
+          "status": "Saiu de uma base",
+          "unidade": "Brasília, DF",
+          "descricao": "O pacote está em transferência de uma base para outra.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-24 22:08:07",
+          "status": "Chegou em uma base",
+          "unidade": "Brasília, DF",
+          "descricao": "Tudo certo, o pacote está em uma base da Loggi.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-23 20:11:16",
+          "status": "Saiu de uma base",
+          "unidade": "Cajamar, SP",
+          "descricao": "O pacote está em transferência de uma base para outra.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-23 11:23:27",
+          "status": "Conferido",
+          "unidade": "",
+          "descricao": "O pacote foi confirmado em uma base da Loggi e vai ser preparado para transferência.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-23 11:23:27",
+          "status": "Medido e pesado",
+          "unidade": "",
+          "descricao": "O pacote já teve suas dimensões conferidas.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-23 03:26:35",
+          "status": "A transportadora coletou o pacote na base Pegaki.",
+          "unidade": "",
+          "descricao": "O envio segue após triagem na rede Pegaki para o centro da transportadora.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-23 02:45:21",
+          "status": "Coletado",
+          "unidade": "Guarulhos, SP",
+          "descricao": "A coleta do pacote foi feita e o processo de envio vai ser iniciado.",
+          "tracking_origin": "loggi"
+        },
+        {
+          "data": "2026-06-22 16:44:34",
+          "status": "O pacote está sendo organizado para seguir viagem.",
+          "unidade": "",
+          "descricao": "O pacote foi agrupado com outros envios para otimizar o transporte e direcionamento da rota.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-22 16:41:38",
+          "status": "O pacote chegou ao centro logístico da transportadora.",
+          "unidade": "",
+          "descricao": "O pacote chegou ao centro de distribuição (HUB) da transportadora para triagem e encaminhamento.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-22 14:13:48",
+          "status": "A transportadora coletou o pacote no ponto Pegaki.",
+          "unidade": "PONTO EXEMPLO",
+          "descricao": "A transportadora realizou a coleta do pacote no ponto Pegaki.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-19 12:43:48",
+          "status": "O pacote foi postado em um ponto Pegaki.",
+          "unidade": "PONTO EXEMPLO",
+          "descricao": "O pacote foi postado pelo remetente em um ponto Pegaki (PUDO) e aguarda coleta da transportadora.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-19 11:35:08",
+          "status": "Criado",
+          "unidade": "",
+          "descricao": "Criado",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-19 11:35:07",
+          "status": "Adicionado no sistema",
+          "unidade": "",
+          "descricao": "A etiqueta de envio já foi criada e o pacote está pronto para a coleta.",
+          "tracking_origin": "loggi"
+        }
+      ]
+    },
+    "shipmentId": "ABCDEFGH",
+    "shipmentStatus": "Entregue",
+    "previsaoEntrega": "2026-07-03",
+    "show_em_atraso_badge": false
+  },
+  "delivery_proof": {
+    "links": [
+      {
+        "rel": "facade_photo",
+        "href": "https://example.com/proof/facade.jpg"
+      },
+      {
+        "rel": "delivery_receipt",
+        "href": "https://example.com/proof/receipt"
+      },
+      {
+        "rel": "delivery_receipt_image",
+        "href": "https://example.com/proof/receipt.jpg"
+      }
+    ],
+    "source": "loggi_package_details_api",
+    "carrier": "loggi",
+    "captured_at": "2026-07-03T00:45:33.290Z",
+    "receiverName": "Ana ",
+    "receiverDocument": "",
+    "locationDescription": "INVALID"
+  },
+  "ticket_history": [
+    {
+      "id": 1500003,
+      "order_id": 400002,
+      "event_type": "ticket_history.occurrence_status",
+      "params": {
+        "tracking_status": "Entregue"
+      },
+      "application_id": 100,
+      "application_name": "tracking-page",
+      "application_display_name": "Página de Rastreio",
+      "title": "Seu envio foi entregue ao destinatário",
+      "subtitle": "**Loggi** entregou seu pacote no endereço de destino · Registrado pelo aplicativo: Página de Rastreio",
+      "message": "Seu envio foi entregue ao destinatário",
+      "created_at": "2026-07-03T00:45:32.846Z"
+    },
+    {
+      "id": 1500002,
+      "order_id": 400002,
+      "event_type": "ticket_history.ticket_created",
+      "params": {
+        "tracking_status": "Entregue"
+      },
+      "application_id": 100,
+      "application_name": "tracking-page",
+      "application_display_name": "Página de Rastreio",
+      "title": "Chamado de **entregue** criado automaticamente na SuperFrete",
+      "subtitle": "A SuperFrete está acompanhando seu caso com prioridade · Registrado pelo aplicativo: Página de Rastreio",
+      "message": "Chamado de **entregue** criado automaticamente na SuperFrete",
+      "created_at": "2026-07-03T00:45:32.845Z"
+    }
+  ],
+  "carrier_reply_delivery_forecasts": []
+}

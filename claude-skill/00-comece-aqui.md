@@ -44,6 +44,10 @@ Consulte restrições técnicas de peso, tamanho e seguro de cada serviço.
 O SDK usa exceções tipadas por código HTTP para facilitar o diagnóstico.
 - **Acesse:** [10-exceptions.md](./10-exceptions.md)
 
+### 8. "Preciso rastrear um envio pelo código de rastreio"
+API pública, sem autenticação, com cliente próprio (`SuperFreteTrackingClient`): eventos da transportadora, previsão de entrega e comprovantes.
+- **Acesse:** [11-tracking.md](./11-tracking.md)
+
 ---
 
 ## Mapa da Documentação (Roadmap)
@@ -60,6 +64,7 @@ Leitura recomendada para um aprendizado completo:
 8. **[07. Users](./07-users.md):** Dados do usuário autenticado e endereços cadastrados.
 9. **[08. ShippingServices](./08-shipping-services.md):** Informações técnicas de cada transportadora/serviço.
 10. **[10. Exceptions](./10-exceptions.md):** Tratamento de erros tipados e depuração de respostas de API.
+11. **[11. Tracking](./11-tracking.md):** Rastreamento público de envios — cliente separado, sem autenticação.
 
 ---
 

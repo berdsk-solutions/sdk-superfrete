@@ -3,7 +3,9 @@ tags: [configuracao, autenticacao, singleton, injecao-de-dependencia, ambientes]
 ---
 # SuperFreteClient: O Coração do SDK
 
-O `SuperFreteClient` é a classe central e o único ponto de entrada para todas as operações do SDK `Berdsk.Sdk.SuperFrete`. Ele organiza os serviços da API SuperFrete em propriedades tipadas e garante autenticação consistente em todas as chamadas.
+O `SuperFreteClient` é a classe central e o ponto de entrada para todas as operações autenticadas do SDK `Berdsk.Sdk.SuperFrete`. Ele organiza os serviços da API SuperFrete em propriedades tipadas e garante autenticação consistente em todas as chamadas.
+
+> **Exceção:** o rastreamento público usa uma API separada sem autenticação e tem cliente próprio, o `SuperFreteTrackingClient` — veja [11-tracking.md](./11-tracking.md).
 
 ## Como Instanciar
 
@@ -99,6 +101,8 @@ Ao digitar `client.`, você terá acesso às seguintes áreas:
 | `.Orders` | `ISfOrderService` | Consultar, cancelar, imprimir e listar pedidos. |
 | `.Webhooks` | `ISfWebhookService` | Criar, listar, atualizar e remover apps de webhook. |
 | `.Users` | `ISfUserService` | Consultar dados e endereços do usuário autenticado. |
+
+> Rastreamento **não** está aqui — é público e vive no `SuperFreteTrackingClient.Tracking` ([11-tracking.md](./11-tracking.md)).
 
 ---
 

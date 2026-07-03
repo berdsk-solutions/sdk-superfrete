@@ -26,6 +26,39 @@ namespace Berdsk.Sdk.SuperFrete.Tests.Unit.Converters
         }
 
         [Fact]
+        public void Read_BrazilianDateTimeString_ReturnsUtcDateTime()
+        {
+            // "13/06/2026" só é válido como dd/MM — falharia no parse invariante (MM/dd)
+            const string json = """{ "date": "13/06/2026 01:30:01" }""";
+
+            var result = JsonSerializer.Deserialize<DateHolder>(json);
+
+            result!.Date.Should().Be(new DateTime(2026, 6, 13, 1, 30, 1, DateTimeKind.Utc));
+            result.Date!.Value.Kind.Should().Be(DateTimeKind.Utc);
+        }
+
+        [Fact]
+        public void Read_AmbiguousBrazilianDateTimeString_ParsesAsDayMonth()
+        {
+            // "02/07/2026" deve ser 2 de julho (dd/MM), não 7 de fevereiro (MM/dd)
+            const string json = """{ "date": "02/07/2026 21:53:27" }""";
+
+            var result = JsonSerializer.Deserialize<DateHolder>(json);
+
+            result!.Date.Should().Be(new DateTime(2026, 7, 2, 21, 53, 27, DateTimeKind.Utc));
+        }
+
+        [Fact]
+        public void Read_BrazilianDateOnlyString_ReturnsUtcDateTime()
+        {
+            const string json = """{ "date": "25/12/2026" }""";
+
+            var result = JsonSerializer.Deserialize<DateHolder>(json);
+
+            result!.Date.Should().Be(new DateTime(2026, 12, 25, 0, 0, 0, DateTimeKind.Utc));
+        }
+
+        [Fact]
         public void Read_FirestoreTimestampObject_ReturnsUtcDateTime()
         {
             const string json = """{ "date": { "_seconds": 1696156800, "_nanoseconds": 500000000 } }""";

@@ -10,6 +10,7 @@ namespace Berdsk.Sdk.SuperFrete.Converters
     ///     detectando automaticamente o formato recebido:
     ///     <list type="bullet">
     ///         <item>String ISO 8601 (ex: <c>"2026-06-24T22:41:58.325Z"</c>)</item>
+    ///         <item>String em formato brasileiro dia/mês/ano (ex: <c>"02/07/2026 21:53:27"</c>)</item>
     ///         <item>Objeto Firestore Timestamp (ex: <c>{ "_seconds": 1696156800, "_nanoseconds": 0 }</c>)</item>
     ///         <item>Número unix epoch em segundos ou milissegundos</item>
     ///     </list>
@@ -27,6 +28,17 @@ namespace Berdsk.Sdk.SuperFrete.Converters
         ///     Quantidade de nanossegundos em um tick de <see cref="DateTime" /> (100ns por tick).
         /// </summary>
         private const long NanosecondsPerTick = 100;
+
+        /// <summary>
+        ///     Formatos brasileiros dia/mês/ano usados pela API de rastreamento (ex: <c>"02/07/2026 21:53:27"</c>).
+        ///     Precisam de <see cref="DateTime.TryParseExact(string, string, IFormatProvider, DateTimeStyles, out DateTime)" />
+        ///     pois o parse invariante interpretaria o primeiro componente como mês.
+        /// </summary>
+        private static readonly string[] BrazilianDateFormats =
+        {
+            "dd/MM/yyyy HH:mm:ss",
+            "dd/MM/yyyy"
+        };
 
         /// <summary>
         ///     Indica que o conversor também deve ser invocado para tokens <c>null</c>.
@@ -52,6 +64,9 @@ namespace Berdsk.Sdk.SuperFrete.Converters
                     var value = reader.GetString();
                     if (string.IsNullOrWhiteSpace(value))
                         return null;
+                    if (DateTime.TryParseExact(value, BrazilianDateFormats, CultureInfo.InvariantCulture,
+                            DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out var brazilianDate))
+                        return brazilianDate;
                     return DateTime.Parse(value, CultureInfo.InvariantCulture,
                         DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
 

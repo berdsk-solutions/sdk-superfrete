@@ -30,4 +30,8 @@
         <ProjectReference Include="..\..\src\Berdsk.Sdk.SuperFrete\Berdsk.Sdk.SuperFrete.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="TestData\**\*.json" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
 </Project>

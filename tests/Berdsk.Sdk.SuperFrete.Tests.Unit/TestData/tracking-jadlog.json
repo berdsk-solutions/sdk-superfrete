@@ -1,0 +1,410 @@
+{
+  "superfrete": true,
+  "is_delayed": false,
+  "delay_days": null,
+  "application_id": 100,
+  "application_name": "tracking-page",
+  "application_display_name": "Página de Rastreio",
+  "tracking": {
+    "etiqueta": "13190000000001",
+    "uid": "TestUserUid00000000000000001",
+    "sender_name": "João da Silva",
+    "email": "remetente@example.com",
+    "phone_number": "11999990000",
+    "order_number_magento": "2000000001",
+    "order_data": {
+      "tag": {
+        "origin": {
+          "name": "João da Silva",
+          "firstname": "João",
+          "lastname": "Silva",
+          "street": "Rua das Acácias",
+          "number": "100",
+          "complement": "",
+          "district": "Vila Primavera",
+          "city": "São Paulo",
+          "region": "SP",
+          "postcode": "01000000",
+          "email": "remetente@example.com",
+          "phone": "11999990000",
+          "phone_number": "11999990000"
+        },
+        "destiny": {
+          "name": "Maria Oliveira Santos",
+          "street": "Rua das Palmeiras",
+          "number": "200",
+          "complement": "",
+          "district": "Centro",
+          "city": "Guaratinguetá",
+          "region": "SP",
+          "postcode": "12500000",
+          "email": "",
+          "phone": ""
+        }
+      },
+      "superpoint": {
+        "active": true,
+        "address": "AVENIDA EXEMPLO",
+        "carriers": {
+          "0": "correios",
+          "1": "jadlog",
+          "2": "loggi",
+          "3": "jt"
+        },
+        "city": "SÃO PAULO",
+        "company_name": "PONTO EXEMPLO",
+        "created_at": "02/02/2026 21:40:40",
+        "deleted_at": null,
+        "distance": 0.85,
+        "favorite": false,
+        "geolocation": {
+          "lat": -23.5,
+          "lon": -46.7
+        },
+        "id": "PROVIDER|pegaki|EID|0001",
+        "idMongo": "PROVIDER|pegaki|EID|0001",
+        "mcu": "PROVIDER|pegaki|EID|0001",
+        "neighborhood": "VILA PRIMAVERA",
+        "number": "400",
+        "opening_hours": "SEGUNDA A SEXTA, DAS 08:00 ÀS 18:00",
+        "postcode": "02900000",
+        "provider": "pegaki",
+        "region": "SP",
+        "type": "public",
+        "unit": "PONTO EXEMPLO",
+        "updated_at": "13/06/2026 01:30:01"
+      }
+    },
+    "orders_api_data": {
+      "status": "completed",
+      "uid": "TestUserUid00000000000000001",
+      "order_id": "01TESTORDERJADLOG00000001",
+      "data": {
+        "tag": {
+          "origin": {
+            "name": "João da Silva",
+            "firstname": "João",
+            "lastname": "Silva",
+            "street": "Rua das Acácias",
+            "number": "100",
+            "complement": "",
+            "district": "Vila Primavera",
+            "city": "São Paulo",
+            "region": "SP",
+            "postcode": "01000000",
+            "email": "remetente@example.com",
+            "phone": "11999990000",
+            "phone_number": "11999990000"
+          },
+          "destiny": {
+            "name": "Maria Oliveira Santos",
+            "street": "Rua das Palmeiras",
+            "number": "200",
+            "complement": "",
+            "district": "Centro",
+            "city": "Guaratinguetá",
+            "region": "SP",
+            "postcode": "12500000",
+            "email": "",
+            "phone": ""
+          }
+        },
+        "superpoint": {
+          "active": true,
+          "address": "AVENIDA EXEMPLO",
+          "carriers": {
+            "0": "correios",
+            "1": "jadlog",
+            "2": "loggi",
+            "3": "jt"
+          },
+          "city": "SÃO PAULO",
+          "company_name": "PONTO EXEMPLO",
+          "created_at": "02/02/2026 21:40:40",
+          "deleted_at": null,
+          "distance": 0.85,
+          "favorite": false,
+          "geolocation": {
+            "lat": -23.5,
+            "lon": -46.7
+          },
+          "id": "PROVIDER|pegaki|EID|0001",
+          "idMongo": "PROVIDER|pegaki|EID|0001",
+          "mcu": "PROVIDER|pegaki|EID|0001",
+          "neighborhood": "VILA PRIMAVERA",
+          "number": "400",
+          "opening_hours": "SEGUNDA A SEXTA, DAS 08:00 ÀS 18:00",
+          "postcode": "02900000",
+          "provider": "pegaki",
+          "region": "SP",
+          "type": "public",
+          "unit": "PONTO EXEMPLO",
+          "updated_at": "13/06/2026 01:30:01"
+        }
+      },
+      "payment": {
+        "amount_charged_to_credit_card": 0,
+        "credit_to_be_used": 16.93,
+        "applied_credit_amount": 16.93,
+        "use_credit_card": false,
+        "use_store_credit": true
+      },
+      "service_calculated": {
+        "bonus": 0,
+        "carrier": "jadlog",
+        "code": "2002",
+        "declared_value_amount": null,
+        "delivery_time": 3,
+        "destinyPostCode": "12500000",
+        "discount_amount": 8.47,
+        "discount_service_code": "2002",
+        "has_counter_service": false,
+        "has_discount": true,
+        "has_error": false,
+        "has_observation": false,
+        "home_delivery": false,
+        "isContract": true,
+        "level": 1,
+        "max_delivery_time": 3,
+        "min_delivery_time": 3,
+        "name": "JADLOG Econômico",
+        "originPostCode": "01000000",
+        "real_discount_amount": 8.47,
+        "receipt_notice_amount": 0,
+        "saturday_delivery": true,
+        "self_hand_amount": 0,
+        "subtotal": 25.4,
+        "total": 12.36,
+        "total_with_discount": 16.93,
+        "total_without_discount": 25.4,
+        "data": {
+          "width": 21,
+          "height": 20.5,
+          "depth": 30,
+          "diameter": null,
+          "weight": 3,
+          "declared_value": null,
+          "declared_value_option": false
+        }
+      },
+      "service_posted": {
+        "bonus": 0,
+        "code": "2002",
+        "date": "2026-06-17T19:58:18.554Z",
+        "declared_value_amount": null,
+        "discount_amount": 8.47,
+        "real_discount_amount": 8.47,
+        "total": 12.36,
+        "total_with_discount": 16.93,
+        "total_without_discount": 25.4,
+        "wasPostedAtWrongPudo": false,
+        "wasReturnedToSender": false,
+        "wrongPudoExtraAmount": 0,
+        "data": {
+          "width": "31",
+          "height": "21",
+          "depth": "21",
+          "diameter": null,
+          "weight": 3,
+          "declared_value": null,
+          "declared_value_option": null
+        }
+      },
+      "carrier_data": {
+        "code": "600000001",
+        "id": "13190000000001",
+        "tracking_code": "13190000000001",
+        "volume_print": {
+          "barCode": "13190000000001$001012500000",
+          "destinationUnit": "CO GUARATINGUETA 01",
+          "lastMile": "2",
+          "position": "09",
+          "priority": 3,
+          "road": "C",
+          "route": "SP-SJK-0199-SAO03",
+          "volumeSequence": 1
+        }
+      },
+      "magento_data": {
+        "order_number": "2000000001"
+      },
+      "content_declaration": [
+        {
+          "description": "Produto exemplo",
+          "id": "00000000-0000-0000-0000-000000000001",
+          "qty": "1",
+          "value": "50.00"
+        }
+      ]
+    },
+    "current_date": "02/07/2026 21:53:27",
+    "recipient_name": "Maria Oliveira Santos",
+    "recipient_address": "Rua das Palmeiras, 200, Centro, Guaratinguetá, SP, CEP 12500000",
+    "recipient_phone": "",
+    "shipping_modality": "JADLOG ECONOMICO"
+  },
+  "provider_tracking": {
+    "provider": "jadlog",
+    "success": true,
+    "shipmentId": "13190000000001",
+    "shipmentStatus": "Entregue",
+    "previsaoEntrega": "2026-06-23",
+    "tracking": {
+      "codigo": "18260000000001",
+      "status": "Entregue",
+      "eventos": [
+        {
+          "data": "2026-06-19 15:57:23",
+          "status": "Entregue",
+          "unidade": "CO GUARATINGUETA 01",
+          "descricao": "ENTREGUE ENTREGUE",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-18 11:28:44",
+          "status": "Saiu para entrega ao destinatário",
+          "unidade": "CO GUARATINGUETA 01",
+          "descricao": "EM ROTA EM ROTA",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-18 10:31:07",
+          "status": "Em trânsito",
+          "unidade": "CO GUARATINGUETA 01",
+          "descricao": "ENTRADA ENTRADA",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-18 09:42:22",
+          "status": "Em transferência",
+          "unidade": "MT JADLOG SEDE",
+          "descricao": "TRANSFERIDO PARA UNIDADE TRANSFERIDO PARA UNIDADE",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-18 04:21:22",
+          "status": "Em transferência",
+          "unidade": "MT NEXUS 87 PERUS",
+          "descricao": "TRANSFERENCIA TRANSFERENCIA",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-17 17:51:28",
+          "status": "Em transferência",
+          "unidade": "MT NEXUS 87 PERUS",
+          "descricao": "TRANSFERENCIA TRANSFERENCIA",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-17 15:03:34",
+          "status": "Em trânsito",
+          "unidade": "MT NEXUS 87 PERUS",
+          "descricao": "ENTRADA ENTRADA",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-17 15:03:33",
+          "status": "Registrado na transportadora",
+          "unidade": "MT NEXUS 87 PERUS",
+          "descricao": "EMISSAO EMISSAO",
+          "tracking_origin": "jadlog"
+        },
+        {
+          "data": "2026-06-16 23:33:15",
+          "status": "A transportadora coletou o pacote na base Pegaki.",
+          "unidade": "",
+          "descricao": "O envio segue após triagem na rede Pegaki para o centro da transportadora.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-16 15:46:39",
+          "status": "O pacote está sendo organizado para seguir viagem.",
+          "unidade": "",
+          "descricao": "O pacote foi agrupado com outros envios para otimizar o transporte e direcionamento da rota.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-16 15:28:19",
+          "status": "O pacote chegou ao centro logístico da transportadora.",
+          "unidade": "",
+          "descricao": "O pacote chegou ao centro de distribuição (HUB) da transportadora para triagem e encaminhamento.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-16 13:37:14",
+          "status": "A transportadora coletou o pacote no ponto Pegaki.",
+          "unidade": "PONTO EXEMPLO",
+          "descricao": "A transportadora realizou a coleta do pacote no ponto Pegaki.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-15 14:02:20",
+          "status": "O pacote foi postado em um ponto Pegaki.",
+          "unidade": "PONTO EXEMPLO",
+          "descricao": "O pacote foi postado pelo remetente em um ponto Pegaki (PUDO) e aguarda coleta da transportadora.",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-13 15:52:36",
+          "status": "Criado",
+          "unidade": "",
+          "descricao": "Criado",
+          "tracking_origin": "pegaki"
+        },
+        {
+          "data": "2026-06-13 15:52:33",
+          "status": "Em trânsito",
+          "unidade": "MT NEXUS 87 PERUS",
+          "descricao": "COLETA SOLICITADA COLETA SOLICITADA",
+          "tracking_origin": "jadlog"
+        }
+      ]
+    },
+    "show_em_atraso_badge": false
+  },
+  "delivery_proof": {
+    "links": [
+      {
+        "rel": "pod",
+        "href": "https://example.com/pod/13190000000001.jpeg"
+      }
+    ],
+    "source": "jadlog_app_tracking_api",
+    "carrier": "jadlog",
+    "captured_at": "2026-07-03T00:53:27.412Z"
+  },
+  "ticket_history": [
+    {
+      "id": 1500001,
+      "order_id": 400001,
+      "event_type": "ticket_history.occurrence_status",
+      "params": {
+        "tracking_status": "Entregue"
+      },
+      "application_id": 100,
+      "application_name": "tracking-page",
+      "application_display_name": "Página de Rastreio",
+      "title": "Seu envio foi entregue ao destinatário",
+      "subtitle": "**Jadlog** entregou seu pacote no endereço de destino · Registrado pelo aplicativo: Página de Rastreio",
+      "message": "Seu envio foi entregue ao destinatário",
+      "created_at": "2026-07-03T00:53:27.127Z"
+    },
+    {
+      "id": 1500000,
+      "order_id": 400001,
+      "event_type": "ticket_history.ticket_created",
+      "params": {
+        "tracking_status": "Entregue"
+      },
+      "application_id": 100,
+      "application_name": "tracking-page",
+      "application_display_name": "Página de Rastreio",
+      "title": "Chamado de **entregue** criado automaticamente na SuperFrete",
+      "subtitle": "A SuperFrete está acompanhando seu caso com prioridade · Registrado pelo aplicativo: Página de Rastreio",
+      "message": "Chamado de **entregue** criado automaticamente na SuperFrete",
+      "created_at": "2026-07-03T00:53:27.126Z"
+    }
+  ],
+  "carrier_reply_delivery_forecasts": [],
+  "ticket_created": true
+}
