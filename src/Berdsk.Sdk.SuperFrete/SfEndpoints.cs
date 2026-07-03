@@ -101,6 +101,19 @@ namespace Berdsk.Sdk.SuperFrete
         }
 
         /// <summary>
+        ///     Endpoints da API pública de rastreamento (<c>https://rastreamento.superfrete.com/</c>).
+        ///     Não requer autenticação — use o <c>SuperFreteTrackingClient</c>.
+        /// </summary>
+        public static class Tracking
+        {
+            /// <summary>
+            ///     Endpoint para consultar o rastreamento completo de um envio pelo código de rastreio.
+            ///     Método: GET. Use <see cref="string.Format(string, object)" /> para substituir <c>{0}</c> pelo código.
+            /// </summary>
+            public const string ByCode = "public/tracking/{0}";
+        }
+
+        /// <summary>
         ///     Endpoints do serviço de usuário.
         /// </summary>
         public static class Users

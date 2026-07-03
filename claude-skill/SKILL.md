@@ -1,6 +1,6 @@
 ---
 name: superfrete
-description: Integração completa com a SuperFrete via SDK Berdsk.Sdk.SuperFrete. Use este skill para gerar código C# correto na primeira tentativa — cobre instalação, todos os serviços, DTOs, helpers, webhooks e tratamento de erros.
+description: Integração completa com a SuperFrete via SDK Berdsk.Sdk.SuperFrete. Use este skill para gerar código C# correto na primeira tentativa — cobre instalação, todos os serviços, DTOs, helpers, webhooks, rastreamento público de envios (tracking) e tratamento de erros.
 ---
 
 # Skill: Integração SuperFrete (.NET)
@@ -22,6 +22,7 @@ Consulte os arquivos abaixo para referência completa de cada serviço:
 | [08-shipping-services.md](./08-shipping-services.md) | Restrições técnicas por transportadora |
 | [09-helpers.md](./09-helpers.md) | Todas as constantes — SfOrderStatus, SfWebhookEvent, SfShippingServiceType, etc. |
 | [10-exceptions.md](./10-exceptions.md) | Hierarquia de exceções e padrões de retry |
+| [11-tracking.md](./11-tracking.md) | Rastreamento público de envios — cliente separado, sem autenticação |
 
 ---
 
@@ -43,6 +44,7 @@ using Berdsk.Sdk.SuperFrete.Services.Orders.Dtos;
 using Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos;
 using Berdsk.Sdk.SuperFrete.Services.Users.Dtos;
 using Berdsk.Sdk.SuperFrete.Services.ShippingServices.Dtos;
+using Berdsk.Sdk.SuperFrete.Services.Tracking.Dtos;
 ```
 
 ---
@@ -58,6 +60,7 @@ using Berdsk.Sdk.SuperFrete.Services.ShippingServices.Dtos;
 | `client.Orders` | `ISfOrderService` | Consultar, cancelar, imprimir, listar |
 | `client.Webhooks` | `ISfWebhookService` | CRUD de webhook apps |
 | `client.Users` | `ISfUserService` | Dados e endereços do usuário |
+| `trackingClient.Tracking` | `ISfTrackingService` | Rastreamento público (cliente separado, sem token) |
 
 ---
 
@@ -84,6 +87,21 @@ builder.Services.AddSingleton<SuperFreteClient>(sp =>
 ```
 
 > Detalhes completos → [01-superfrete-client.md](./01-superfrete-client.md)
+
+---
+
+## Rastreamento — Cliente Separado (sem autenticação)
+
+A API de rastreamento é pública (`https://rastreamento.superfrete.com/`) e tem cliente próprio — **não usa token nem o `SuperFreteClient`**:
+
+```csharp
+var trackingClient = new SuperFreteTrackingClient(appName: "MinhaApp", appVersion: "1.0.0");
+
+var resultado = await trackingClient.Tracking.GetTrackingAsync("13191900413840");
+Console.WriteLine(resultado?.ProviderTracking?.ShipmentStatus); // "Entregue"
+```
+
+> Detalhes completos e todos os DTOs → [11-tracking.md](./11-tracking.md)
 
 ---
 
@@ -137,7 +155,7 @@ Checkout.FinalizeOrderAsync()        →  pagar e gerar etiqueta (status: releas
 
 - **Payload real** é `SfWebhookPayload` → `SfWebhookPayloadData`
 - **`tags`** é `Dictionary<string, SfWebhookTag>` com chaves numéricas em string (`"0"`, `"1"`...) — **não é array**
-- **Todos os campos de data** são `DateTime?` em UTC — o `SfDateTimeConverter` detecta automaticamente string ISO 8601, objeto Firestore Timestamp (`_seconds`/`_nanoseconds`) ou unix epoch
+- **Todos os campos de data** são `DateTime?` em UTC — o `SfDateTimeConverter` detecta automaticamente string ISO 8601, formato brasileiro `dd/MM/yyyy HH:mm:ss`, objeto Firestore Timestamp (`_seconds`/`_nanoseconds`) ou unix epoch
 - **`SecretToken`** retornado **apenas na criação** — armazene imediatamente em variável de ambiente
 - **Header de validação:** `X-ME-Signature` — valide com HMAC-SHA256 usando `CryptographicOperations.FixedTimeEquals`
 - **Sempre retorne HTTP 200** — a SuperFrete reenvia até 5× em caso de falha (intervalo de 15 min)
@@ -173,3 +191,4 @@ Checkout.FinalizeOrderAsync()        →  pagar e gerar etiqueta (status: releas
 6. **`Print.Url` expira** — nunca armazene; gere sempre via `Orders.GetPrintLinkAsync`
 7. **Cancelamento** — só funciona nos status `pending` ou `released`
 8. **`tags` no webhook** — é dicionário com chaves `"0"`, `"1"`, não array
+9. **Rastreamento** — sempre via `SuperFreteTrackingClient` (público, sem token); nunca via `SuperFreteClient`
