@@ -54,11 +54,13 @@ namespace Berdsk.Sdk.SuperFrete.Services.Webhooks.Dtos
         public string? UserId { get; set; }
 
         /// <summary>
-        ///     Tags do pedido indexadas por posição (chave numérica em string: "0", "1", ...).
-        ///     Permitem associar identificadores externos ao pedido, como o número do pedido da loja.
+        ///     Tags do pedido. Permitem associar identificadores externos ao pedido, como o número do pedido da loja.
+        ///     A API envia objeto indexado por posição quando há tags e array vazio quando não há —
+        ///     ambos os formatos são normalizados para esta lista, que nunca é <c>null</c>.
         /// </summary>
         [JsonPropertyName("tags")]
-        public Dictionary<string, SfWebhookTag>? Tags { get; set; }
+        [JsonConverter(typeof(SfWebhookTagsConverter))]
+        public List<SfWebhookTag> Tags { get; set; } = new List<SfWebhookTag>();
 
         /// <summary>
         ///     Data e hora de criação do pedido em UTC.
